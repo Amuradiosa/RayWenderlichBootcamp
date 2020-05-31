@@ -30,9 +30,31 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
   }
+  
+  @IBAction func sliders(_ sender: UISlider) {
+    let sliderValue = String(Int(sender.value.rounded()))
+    
+    switch sender.tag {
+    case 0:
+      firstSliderValueLabel.text = sliderValue
+    case 1:
+      secondSliderValueLabel.text = sliderValue
+    case 2:
+      thirdSliderValueLabel.text = sliderValue
+    default:
+      break
+    }
+  }
+  
+  
 
   @IBAction func setColour(_ sender: Any) {
+    setBackgroundColour()
     showAlert()
+  }
+  
+  func setBackgroundColour() {
+    
   }
   
   func showAlert() {
@@ -57,6 +79,8 @@ class ViewController: UIViewController {
     alert.addAction(action)
     present(alert, animated: true)
   }
+  
+  
   
 
 }
