@@ -18,11 +18,12 @@
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="w3X-n3-OXW">
                                 <rect key="frame" x="30" y="534" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliders:" destination="BYZ-38-t0r" eventType="valueChanged" id="xiL-R3-7e1"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-M5-zet">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-M5-zet">
                                 <rect key="frame" x="352" y="527" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -40,11 +41,12 @@
                             <slider opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="MUV-Ur-xuk">
                                 <rect key="frame" x="30" y="625" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliders:" destination="BYZ-38-t0r" eventType="valueChanged" id="yDl-yP-TCn"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RT-As-xTw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RT-As-xTw">
                                 <rect key="frame" x="352" y="618" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -62,11 +64,12 @@
                             <slider opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="t56-Aa-j47">
                                 <rect key="frame" x="30" y="714" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliders:" destination="BYZ-38-t0r" eventType="valueChanged" id="AEX-tU-UQr"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7k-JR-4K3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7k-JR-4K3">
                                 <rect key="frame" x="352" y="707" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -125,14 +128,14 @@
                         <outlet property="colourName" destination="j7C-hA-eZF" id="sea-6Q-0Qy"/>
                         <outlet property="firstSlider" destination="w3X-n3-OXW" id="BG3-gE-qfF"/>
                         <outlet property="firstSliderAttributeLabel" destination="e76-LA-fNB" id="4l7-fr-8cX"/>
-                        <outlet property="firstSliderValueLabel" destination="YVj-M5-zet" id="2hQ-1z-BC3"/>
                         <outlet property="pickerSwitch" destination="67x-NT-vXe" id="NWD-cS-8Uw"/>
                         <outlet property="secondSlider" destination="MUV-Ur-xuk" id="22O-Ha-ZN6"/>
                         <outlet property="secondSliderAttributeLabel" destination="dPn-10-JeQ" id="tNq-uk-NAG"/>
-                        <outlet property="secondSliderValueLabel" destination="6RT-As-xTw" id="lXh-vc-c8q"/>
                         <outlet property="thirdSlider" destination="t56-Aa-j47" id="Kse-U1-Dda"/>
                         <outlet property="thirdSliderAttributeLabel" destination="Dto-q5-7Ua" id="Rec-ZD-eOr"/>
-                        <outlet property="thirdSliderValueLabel" destination="d7k-JR-4K3" id="BtR-5s-FLT"/>
+                        <outletCollection property="sliderValuesLabels" destination="YVj-M5-zet" collectionClass="NSMutableArray" id="anT-yz-da5"/>
+                        <outletCollection property="sliderValuesLabels" destination="6RT-As-xTw" collectionClass="NSMutableArray" id="oFS-I5-SmS"/>
+                        <outletCollection property="sliderValuesLabels" destination="d7k-JR-4K3" collectionClass="NSMutableArray" id="Saj-fg-33X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

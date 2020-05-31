@@ -17,9 +17,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var secondSliderAttributeLabel: UILabel!
   @IBOutlet weak var thirdSliderAttributeLabel: UILabel!
   
-  @IBOutlet weak var firstSliderValueLabel: UILabel!
-  @IBOutlet weak var secondSliderValueLabel: UILabel!
-  @IBOutlet weak var thirdSliderValueLabel: UILabel!
+  @IBOutlet var sliderValuesLabels: [UILabel]!
   
   @IBOutlet weak var firstSlider: UISlider!
   @IBOutlet weak var secondSlider: UISlider!
@@ -36,16 +34,15 @@ class ViewController: UIViewController {
     
     switch sender.tag {
     case 0:
-      firstSliderValueLabel.text = sliderValue
+      sliderValuesLabels[0].text = sliderValue
     case 1:
-      secondSliderValueLabel.text = sliderValue
+      sliderValuesLabels[1].text = sliderValue
     case 2:
-      thirdSliderValueLabel.text = sliderValue
+      sliderValuesLabels[2].text = sliderValue
     default:
       break
     }
   }
-  
   
 
   @IBAction func setColour(_ sender: Any) {
