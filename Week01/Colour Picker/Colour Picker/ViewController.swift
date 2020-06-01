@@ -30,10 +30,31 @@ class ViewController: UIViewController {
     switch sender.tag {
     case 0:
       slidersValuesLabels[0].text = sliderValue
+      slidersValuesLabels[0].backgroundColor =
+      UIColor(
+        red: CGFloat(slidersOutlets[0].value/255),
+        green: 0,
+        blue: 0,
+        alpha: 1
+      )
     case 1:
       slidersValuesLabels[1].text = sliderValue
+      slidersValuesLabels[1].backgroundColor =
+      UIColor(
+        red: 0,
+        green: CGFloat(slidersOutlets[1].value/255),
+        blue: 0,
+        alpha: 1
+      )
     case 2:
       slidersValuesLabels[2].text = sliderValue
+      slidersValuesLabels[2].backgroundColor =
+      UIColor(
+        red: 0,
+        green: 0,
+        blue: CGFloat(slidersOutlets[2].value/255),
+        alpha: 1
+      )
     default:
       break
     }
@@ -46,7 +67,13 @@ class ViewController: UIViewController {
   }
   
   func setBackgroundColour() {
-    
+    let pickedColour = UIColor(
+      red: CGFloat(slidersOutlets[0].value/255),
+      green: CGFloat(slidersOutlets[1].value/255),
+      blue: CGFloat(slidersOutlets[2].value/255),
+      alpha: 1
+    )
+    view.backgroundColor = pickedColour
   }
   
   func showAlert() {
