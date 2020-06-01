@@ -13,16 +13,11 @@ class ViewController: UIViewController {
   @IBOutlet weak var colourName: UILabel!
   @IBOutlet weak var pickerSwitch: UISegmentedControl!
   
-  @IBOutlet weak var firstSliderAttributeLabel: UILabel!
-  @IBOutlet weak var secondSliderAttributeLabel: UILabel!
-  @IBOutlet weak var thirdSliderAttributeLabel: UILabel!
+  @IBOutlet var slidersIdentityLabels: [UILabel]!
   
-  @IBOutlet var sliderValuesLabels: [UILabel]!
+  @IBOutlet var slidersValuesLabels: [UILabel]!
   
-  @IBOutlet weak var firstSlider: UISlider!
-  @IBOutlet weak var secondSlider: UISlider!
-  @IBOutlet weak var thirdSlider: UISlider!
-  
+  @IBOutlet var slidersOutlets: [UISlider]!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,11 +29,11 @@ class ViewController: UIViewController {
     
     switch sender.tag {
     case 0:
-      sliderValuesLabels[0].text = sliderValue
+      slidersValuesLabels[0].text = sliderValue
     case 1:
-      sliderValuesLabels[1].text = sliderValue
+      slidersValuesLabels[1].text = sliderValue
     case 2:
-      sliderValuesLabels[2].text = sliderValue
+      slidersValuesLabels[2].text = sliderValue
     default:
       break
     }
@@ -58,18 +53,19 @@ class ViewController: UIViewController {
     let alert = UIAlertController(
       title: "Name of the colour",
       message: "Give your colour a fancy name",
-      preferredStyle: .alert)
+      preferredStyle: .alert
+    )
     
     alert.addTextField { (textField) in
-      textField.placeholder = "name the colour"
+      textField.placeholder = "Name the colour"
     }
     
     let action = UIAlertAction(
       title: "Done",
       style: .default)
     { [weak alert] (action) in
-      let name = alert?.textFields![0].text
-      let nameOfColour = name!.isEmpty ? "Unnamed colour" : name
+      let enteredText = alert?.textFields![0].text
+      let nameOfColour = enteredText!.isEmpty ? "Unnamed colour" : enteredText
       self.colourName.text = nameOfColour!
     }
     

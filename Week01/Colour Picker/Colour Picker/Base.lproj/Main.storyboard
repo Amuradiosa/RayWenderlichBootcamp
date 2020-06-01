@@ -26,7 +26,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-M5-zet">
                                 <rect key="frame" x="352" y="527" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -126,16 +126,16 @@
                     </view>
                     <connections>
                         <outlet property="colourName" destination="j7C-hA-eZF" id="sea-6Q-0Qy"/>
-                        <outlet property="firstSlider" destination="w3X-n3-OXW" id="BG3-gE-qfF"/>
-                        <outlet property="firstSliderAttributeLabel" destination="e76-LA-fNB" id="4l7-fr-8cX"/>
                         <outlet property="pickerSwitch" destination="67x-NT-vXe" id="NWD-cS-8Uw"/>
-                        <outlet property="secondSlider" destination="MUV-Ur-xuk" id="22O-Ha-ZN6"/>
-                        <outlet property="secondSliderAttributeLabel" destination="dPn-10-JeQ" id="tNq-uk-NAG"/>
-                        <outlet property="thirdSlider" destination="t56-Aa-j47" id="Kse-U1-Dda"/>
-                        <outlet property="thirdSliderAttributeLabel" destination="Dto-q5-7Ua" id="Rec-ZD-eOr"/>
-                        <outletCollection property="sliderValuesLabels" destination="YVj-M5-zet" collectionClass="NSMutableArray" id="anT-yz-da5"/>
-                        <outletCollection property="sliderValuesLabels" destination="6RT-As-xTw" collectionClass="NSMutableArray" id="oFS-I5-SmS"/>
-                        <outletCollection property="sliderValuesLabels" destination="d7k-JR-4K3" collectionClass="NSMutableArray" id="Saj-fg-33X"/>
+                        <outletCollection property="slidersValuesLabels" destination="YVj-M5-zet" collectionClass="NSMutableArray" id="anT-yz-da5"/>
+                        <outletCollection property="slidersValuesLabels" destination="6RT-As-xTw" collectionClass="NSMutableArray" id="oFS-I5-SmS"/>
+                        <outletCollection property="slidersValuesLabels" destination="d7k-JR-4K3" collectionClass="NSMutableArray" id="Saj-fg-33X"/>
+                        <outletCollection property="slidersIdentityLabels" destination="e76-LA-fNB" collectionClass="NSMutableArray" id="kYV-zN-mqs"/>
+                        <outletCollection property="slidersIdentityLabels" destination="dPn-10-JeQ" collectionClass="NSMutableArray" id="4At-6G-IAd"/>
+                        <outletCollection property="slidersIdentityLabels" destination="Dto-q5-7Ua" collectionClass="NSMutableArray" id="yc4-LA-9zS"/>
+                        <outletCollection property="slidersOutlets" destination="w3X-n3-OXW" collectionClass="NSMutableArray" id="Kcc-QR-Fzg"/>
+                        <outletCollection property="slidersOutlets" destination="MUV-Ur-xuk" collectionClass="NSMutableArray" id="HBm-MR-xIT"/>
+                        <outletCollection property="slidersOutlets" destination="t56-Aa-j47" collectionClass="NSMutableArray" id="Npl-29-V3r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
