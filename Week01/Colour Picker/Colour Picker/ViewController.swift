@@ -26,8 +26,8 @@ class ViewController: UIViewController {
   
   @IBAction func modeSegmentChanged(_ sender: Any) {
     reconfigureUI()
+    resetColour()
   }
-  
   
   func reconfigureUI() {
     let RGB: [(factorName: String, colour: UIColor)] = [
@@ -122,6 +122,17 @@ class ViewController: UIViewController {
     }
     
     view.backgroundColor = resultColour
+  }
+  
+  @IBAction func resetColourButton(_ sender: Any) {
+    resetColour()
+  }
+  
+  func resetColour() {
+    view.backgroundColor = UIColor.white
+    slidersOutlets.forEach { $0.value = 0.0 }
+    slidersValuesLabels.forEach { $0.text = "" ; $0.backgroundColor = UIColor.white }
+    colourName.text = ""
   }
   
   func showAlert() {
