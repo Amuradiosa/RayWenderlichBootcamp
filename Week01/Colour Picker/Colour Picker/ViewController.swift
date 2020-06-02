@@ -12,11 +12,8 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var colourName: UILabel!
   @IBOutlet weak var modeSegment: UISegmentedControl!
-       
   @IBOutlet var slidersIdentityLabels: [UILabel]!
-  
   @IBOutlet var slidersValuesLabels: [UILabel]!
-  
   @IBOutlet var slidersOutlets: [UISlider]!
   
   override func viewDidLoad() {
@@ -98,7 +95,6 @@ class ViewController: UIViewController {
   }
   
   @IBAction func setColour(_ sender: Any) {
-    setBackgroundColour()
     showAlert()
   }
   
@@ -147,12 +143,13 @@ class ViewController: UIViewController {
     }
     
     let action = UIAlertAction(
-      title: "Done",
+      title: "Enter",
       style: .default)
     { [weak alert] (action) in
       let enteredText = alert?.textFields![0].text
       let nameOfColour = enteredText!.isEmpty ? "Unnamed colour" : enteredText
       self.colourName.text = nameOfColour!
+      self.setBackgroundColour()
     }
     
     alert.addAction(action)

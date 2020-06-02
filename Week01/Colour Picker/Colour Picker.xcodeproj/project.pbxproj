@@ -13,6 +13,8 @@
 		155907F72484235800B18440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155907F52484235800B18440 /* Main.storyboard */; };
 		155907F92484235B00B18440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155907F82484235B00B18440 /* Assets.xcassets */; };
 		155907FC2484235B00B18440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155907FA2484235B00B18440 /* LaunchScreen.storyboard */; };
+		155908052485D4C200B18440 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155908042485D4C200B18440 /* InfoViewController.swift */; };
+		155908082485DB4A00B18440 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155908072485DB4A00B18440 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		155907F82484235B00B18440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155907FB2484235B00B18440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155907FD2484235B00B18440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155908042485D4C200B18440 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		155908072485DB4A00B18440 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155908082485DB4A00B18440 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,7 @@
 			children = (
 				155907EE2484235800B18440 /* Colour Picker */,
 				155907ED2484235800B18440 /* Products */,
+				155908062485DB4A00B18440 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +69,17 @@
 				155907F82484235B00B18440 /* Assets.xcassets */,
 				155907FA2484235B00B18440 /* LaunchScreen.storyboard */,
 				155907FD2484235B00B18440 /* Info.plist */,
+				155908042485D4C200B18440 /* InfoViewController.swift */,
 			);
 			path = "Colour Picker";
+			sourceTree = "<group>";
+		};
+		155908062485DB4A00B18440 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				155908072485DB4A00B18440 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +155,7 @@
 			files = (
 				155907F42484235800B18440 /* ViewController.swift in Sources */,
 				155907F02484235800B18440 /* AppDelegate.swift in Sources */,
+				155908052485D4C200B18440 /* InfoViewController.swift in Sources */,
 				155907F22484235800B18440 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
