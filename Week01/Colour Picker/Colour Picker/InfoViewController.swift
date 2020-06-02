@@ -15,9 +15,12 @@ class InfoViewController: UIViewController {
   
   override func viewDidLoad() {
         super.viewDidLoad()
+    closeButton.layer.cornerRadius = 10
+    closeButton.layer.masksToBounds = true
     loadWikipediaPage()
     }
   
+  @IBOutlet weak var closeButton: UIButton!
   @IBAction func closeButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }

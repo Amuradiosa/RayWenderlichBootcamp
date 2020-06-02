@@ -103,13 +103,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfd-sb-oFM">
-                                        <rect key="frame" x="147" y="333" width="120" height="44"/>
+                                        <rect key="frame" x="140.5" y="328" width="133" height="54"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="gBe-Y6-ram"/>
-                                            <constraint firstAttribute="height" constant="44" id="gmL-Lf-j3a"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="133" id="gBe-Y6-ram"/>
+                                            <constraint firstAttribute="height" constant="54" id="gmL-Lf-j3a"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="Set Colour">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,7 +146,7 @@
                                     <constraint firstItem="t56-Aa-j47" firstAttribute="top" secondItem="Dto-q5-7Ua" secondAttribute="bottom" constant="8" id="EfS-Hs-6OU"/>
                                     <constraint firstItem="e76-LA-fNB" firstAttribute="top" secondItem="xon-ca-1Di" secondAttribute="top" constant="20" id="FEs-HG-xQI"/>
                                     <constraint firstItem="YVj-M5-zet" firstAttribute="top" secondItem="e76-LA-fNB" secondAttribute="bottom" constant="1" id="Kce-If-GoX"/>
-                                    <constraint firstItem="dPn-10-JeQ" firstAttribute="leading" secondItem="xon-ca-1Di" secondAttribute="leading" constant="32" id="M9c-pk-Whi"/>
+                                    <constraint firstItem="dPn-10-JeQ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xon-ca-1Di" secondAttribute="leading" constant="32" id="M9c-pk-Whi"/>
                                     <constraint firstItem="e76-LA-fNB" firstAttribute="leading" secondItem="xon-ca-1Di" secondAttribute="leading" constant="20" id="NFV-au-WHX"/>
                                     <constraint firstAttribute="trailing" secondItem="d7k-JR-4K3" secondAttribute="trailing" constant="21" id="Qjv-Vx-Oxb"/>
                                     <constraint firstItem="YVj-M5-zet" firstAttribute="leading" secondItem="w3X-n3-OXW" secondAttribute="trailing" constant="24" id="RvT-tG-iMW"/>
@@ -154,7 +155,7 @@
                                     <constraint firstAttribute="trailing" secondItem="6RT-As-xTw" secondAttribute="trailing" constant="21" id="Wt8-bh-RkN"/>
                                     <constraint firstAttribute="trailing" secondItem="SPe-Pb-dBm" secondAttribute="trailing" constant="20" id="Xad-qe-bFn"/>
                                     <constraint firstItem="Tfd-sb-oFM" firstAttribute="centerX" secondItem="xon-ca-1Di" secondAttribute="centerX" id="ZdU-73-FvT"/>
-                                    <constraint firstAttribute="bottom" secondItem="Tfd-sb-oFM" secondAttribute="bottom" constant="20" id="ddP-y1-Ewi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tfd-sb-oFM" secondAttribute="bottom" constant="15" id="ddP-y1-Ewi"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="dvw-W5-0YD"/>
                                     <constraint firstItem="d7k-JR-4K3" firstAttribute="leading" secondItem="t56-Aa-j47" secondAttribute="trailing" constant="24" id="eYi-oR-Kzt"/>
                                     <constraint firstItem="6RT-As-xTw" firstAttribute="leading" secondItem="MUV-Ur-xuk" secondAttribute="trailing" constant="24" id="goy-m3-wJb"/>
@@ -164,7 +165,7 @@
                                     <constraint firstItem="t56-Aa-j47" firstAttribute="leading" secondItem="xon-ca-1Di" secondAttribute="leading" constant="32" id="onA-3m-Ise"/>
                                     <constraint firstItem="6RT-As-xTw" firstAttribute="top" secondItem="dPn-10-JeQ" secondAttribute="bottom" constant="1" id="pIN-GI-2ig"/>
                                     <constraint firstItem="MUV-Ur-xuk" firstAttribute="top" secondItem="dPn-10-JeQ" secondAttribute="bottom" constant="8" id="tvK-6a-vHD"/>
-                                    <constraint firstItem="Dto-q5-7Ua" firstAttribute="leading" secondItem="xon-ca-1Di" secondAttribute="leading" constant="32" id="yYt-7T-EVP"/>
+                                    <constraint firstItem="Dto-q5-7Ua" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xon-ca-1Di" secondAttribute="leading" constant="32" id="yYt-7T-EVP"/>
                                     <constraint firstItem="d7k-JR-4K3" firstAttribute="leading" secondItem="t56-Aa-j47" secondAttribute="trailing" constant="24" id="yae-th-hTp"/>
                                     <constraint firstItem="MUV-Ur-xuk" firstAttribute="leading" secondItem="xon-ca-1Di" secondAttribute="leading" constant="32" id="z4n-48-38Y"/>
                                 </constraints>
@@ -190,7 +191,7 @@
                                     </segmentedControl>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="j7C-hA-eZF" firstAttribute="leading" secondItem="xhS-Lc-GTf" secondAttribute="leading" constant="20" id="11o-xo-yky"/>
+                                    <constraint firstItem="j7C-hA-eZF" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xhS-Lc-GTf" secondAttribute="leading" constant="20" id="11o-xo-yky"/>
                                     <constraint firstItem="67x-NT-vXe" firstAttribute="centerX" secondItem="xhS-Lc-GTf" secondAttribute="centerX" id="Erf-Vr-9zJ"/>
                                     <constraint firstItem="j7C-hA-eZF" firstAttribute="centerX" secondItem="xhS-Lc-GTf" secondAttribute="centerX" id="F3H-YP-6zo"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="MPo-UI-UAw"/>
@@ -272,6 +273,7 @@
                         <viewLayoutGuide key="safeArea" id="4Ih-g5-9tQ"/>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="bdt-Mq-dcR" id="oDk-F3-bmp"/>
                         <outlet property="webView" destination="MMH-EA-PR4" id="DFp-wW-MR8"/>
                     </connections>
                 </viewController>
