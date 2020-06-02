@@ -15,15 +15,22 @@ class ViewController: UIViewController {
   @IBOutlet var slidersIdentityLabels: [UILabel]!
   @IBOutlet var slidersValuesLabels: [UILabel]!
   @IBOutlet var slidersOutlets: [UISlider]!
+  @IBOutlet weak var setColourButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    configure()
     // Do any additional setup after loading the view.
   }
   
   @IBAction func modeSegmentChanged(_ sender: Any) {
     reconfigureUI()
     resetColour()
+  }
+  
+  func configure() {
+    round(view: setColourButton)
+    slidersValuesLabels.forEach { round(view: $0) }
   }
   
   func reconfigureUI() {
@@ -156,7 +163,10 @@ class ViewController: UIViewController {
     present(alert, animated: true)
   }
   
-  
+  open func round(view corners: UIView) {
+    corners.layer.cornerRadius = 10
+    corners.layer.masksToBounds = true
+  }
   
 
 }
