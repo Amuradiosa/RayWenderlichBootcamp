@@ -9,11 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-  var currentValue = 0
-  var targetValue = 0
-  var score = 0
-  var round = 0
+  
+  var bullsEyeGame = BullsEyeGame()
   
   @IBOutlet weak var slider: UISlider!
   @IBOutlet weak var targetLabel: UILabel!
@@ -22,33 +19,11 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let roundedValue = slider.value.rounded()
-    currentValue = Int(roundedValue)
     startNewGame()
   }
 
   @IBAction func showAlert() {
-    
-    let difference = abs(targetValue - currentValue)
-    var points = 100 - difference
-    
-    score += points
-    
-    let title: String
-    if difference == 0 {
-      title = "Perfect!"
-      points += 100
-    } else if difference < 5 {
-      title = "You almost had it!"
-      if difference == 1 {
-        points += 50
-      }
-    } else if difference < 10 {
-      title = "Pretty good!"
-    } else {
-      title = "Not even close..."
-    }
-    
+    let (points, title) = bullsEyeGame.pointsAndFeedback()
     let message = "You scored \(points) points"
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -66,26 +41,23 @@ class ViewController: UIViewController {
   
   @IBAction func sliderMoved(_ slider: UISlider) {
     let roundedValue = slider.value.rounded()
-    currentValue = Int(roundedValue)
+    bullsEyeGame.currentValue = Int(roundedValue)
   }
   
   func startNewRound() {
-    round += 1
-    targetValue = Int.random(in: 1...100)
-    currentValue = 50
-    slider.value = Float(currentValue)
+    bullsEyeGame.startNewRound()
+    slider.value = Float(bullsEyeGame.currentValue)
     updateLabels()
   }
   
   func updateLabels() {
-    targetLabel.text = String(targetValue)
-    scoreLabel.text = String(score)
-    roundLabel.text = String(round)
+    targetLabel.text = String(bullsEyeGame.targetValue)
+    scoreLabel.text = String(bullsEyeGame.score)
+    roundLabel.text = String(bullsEyeGame.round)
   }
   
   @IBAction func startNewGame() {
-    score = 0
-    round = 0
+    bullsEyeGame.startNewGame()
     startNewRound()
   }
   
