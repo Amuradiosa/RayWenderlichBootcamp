@@ -151,7 +151,8 @@ class ViewController: UIViewController {
     
     let action = UIAlertAction(
       title: "Enter",
-      style: .default)
+      style: .default
+      )
     { [weak alert] (action) in
       let enteredText = alert?.textFields![0].text
       let nameOfColour = enteredText!.isEmpty ? "Unnamed colour" : enteredText
@@ -163,7 +164,7 @@ class ViewController: UIViewController {
     present(alert, animated: true)
   }
   
-  open func round(view corners: UIView) {
+  func round(view corners: UIView) {
     corners.layer.cornerRadius = 10
     corners.layer.masksToBounds = true
   }
