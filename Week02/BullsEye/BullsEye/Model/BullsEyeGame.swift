@@ -11,11 +11,15 @@ import Foundation
 struct BullsEyeGame {
   var currentValue = 0
   var targetValue = 0
+  var gameMaxValue: Int
   var score = 0
   var round = 0
   
-  mutating func pointsAndFeedback() -> (Int, String) {
-    let difference = abs(targetValue - currentValue)
+  init(gameMaxValue: Int) {
+    self.gameMaxValue = gameMaxValue
+  }
+  
+  mutating func pointsAndFeedback(for difference: Int) -> (Int, String) {
     var points = 100 - difference
     
     score += points
@@ -39,8 +43,8 @@ struct BullsEyeGame {
   
   mutating func startNewRound() {
     round += 1
-    targetValue = Int.random(in: 1...100)
-    currentValue = 50
+    targetValue = Int.random(in: 1...gameMaxValue)
+    currentValue = gameMaxValue / 2
   }
   
   mutating func startNewGame() {

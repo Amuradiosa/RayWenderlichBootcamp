@@ -21,26 +21,46 @@
 */
 
 import Foundation
-import UIKit
 
-extension UIColor {
-  convenience init(rgbStruct rgb: RGB) {
-    let r = CGFloat(rgb.r) / 255.0
-    let g = CGFloat(rgb.g) / 255.0
-    let b = CGFloat(rgb.b) / 255.0
-    self.init(red: r, green: g, blue: b, alpha:1.0)
-  }
-}
-
-struct RGB {
-  var r = 127
-  var g = 127
-  var b = 127
+struct BullsEyeGame {
+  var currentValue = RGB()
+  var targetValue = RGB()
+  var score = 0
+  var round = 0
   
-  func difference(target: RGB) -> Double {
-    let rDiff = Double(r - target.r)
-    let gDiff = Double(g - target.g)
-    let bDiff = Double(b - target.b)
-    return sqrt(rDiff * rDiff + gDiff * gDiff + bDiff * bDiff) / 255.0
+  mutating func pointsAndFeedback() -> (Int, String) {
+    let difference = Int(currentValue.difference(target: targetValue) * 100)
+    var points = 100 - difference
+    
+    score += points
+    
+    let title: String
+    if difference == 0 {
+      title = "Perfect!"
+      points += 100
+    } else if difference < 5 {
+      title = "You almost had it!"
+      if difference == 1 {
+        points += 50
+      }
+    } else if difference < 10 {
+      title = "Pretty good!"
+    } else {
+      title = "Not even close..."
+    }
+    return (points, title)
   }
+  
+  mutating func startNewRound() {
+    round += 1
+    targetValue = RGB(r: Int.random(in: 0...255), g: Int.random(in: 0...255), b: Int.random(in: 0...255))
+    currentValue = RGB(r: 127, g: 127, b: 127)
+  }
+  
+  mutating func startNewGame() {
+    score = 0
+    round = 0
+  }
+  
 }
+

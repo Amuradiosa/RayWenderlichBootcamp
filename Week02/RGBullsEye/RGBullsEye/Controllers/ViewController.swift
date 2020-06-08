@@ -38,27 +38,68 @@ class ViewController: UIViewController {
   @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   
-  let game = BullsEyeGame()
+  var game = BullsEyeGame()
   var rgb = RGB()
   
   @IBAction func aSliderMoved(sender: UISlider) {
-
+    let roundedValue = sender.value.rounded()
+    if sender.tag == 0 {
+      rgb.r = Int(roundedValue)
+      redLabel.text = Int(roundedValue).description
+    } else if sender.tag == 1 {
+      rgb.g = Int(roundedValue)
+      greenLabel.text = Int(roundedValue).description
+    } else if sender.tag == 2 {
+      rgb.b = Int(roundedValue)
+      blueLabel.text = Int(roundedValue).description
+    }
+    game.currentValue = rgb
+    guessLabel.backgroundColor = UIColor.init(rgbStruct: game.currentValue)
   }
   
   @IBAction func showAlert(sender: AnyObject) {
-
+    let (points, title) = game.pointsAndFeedback()
+    let message = "You scored \(points) points"
+    
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    
+    let action = UIAlertAction(title: "OK", style: .default, handler: {
+      action in
+      self.startNewRound()
+    })
+    
+    alert.addAction(action)
+    
+    present(alert, animated: true, completion: nil)
   }
   
   @IBAction func startOver(sender: AnyObject) {
-
+    game.startNewGame()
+    startNewRound()
+  }
+  
+  func startNewRound() {
+    game.startNewRound()
+    redSlider.value = Float(game.currentValue.r)
+    greenSlider.value = Float(game.currentValue.g)
+    blueSlider.value = Float(game.currentValue.b)
+    updateView()
   }
   
   func updateView() {
-
+    targetLabel.backgroundColor = UIColor.init(rgbStruct: game.targetValue)
+    guessLabel.backgroundColor = UIColor.white
+    redLabel.text = game.currentValue.r.description
+    greenLabel.text = game.currentValue.g.description
+    blueLabel.text = game.currentValue.b.description
+    scoreLabel.text = String(game.score)
+    roundLabel.text = String(game.round)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    game.startNewGame()
+    updateView()
   }
 }
 

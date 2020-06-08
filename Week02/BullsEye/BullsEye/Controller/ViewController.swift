@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  var bullsEyeGame = BullsEyeGame()
+  var game = BullsEyeGame(gameMaxValue: 100)
   
   @IBOutlet weak var slider: UISlider!
   @IBOutlet weak var targetLabel: UILabel!
@@ -23,7 +23,8 @@ class ViewController: UIViewController {
   }
 
   @IBAction func showAlert() {
-    let (points, title) = bullsEyeGame.pointsAndFeedback()
+    let difference = abs(game.targetValue - game.currentValue)
+    let (points, title) = game.pointsAndFeedback(for: difference)
     let message = "You scored \(points) points"
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -41,23 +42,23 @@ class ViewController: UIViewController {
   
   @IBAction func sliderMoved(_ slider: UISlider) {
     let roundedValue = slider.value.rounded()
-    bullsEyeGame.currentValue = Int(roundedValue)
+    game.currentValue = Int(roundedValue)
   }
   
   func startNewRound() {
-    bullsEyeGame.startNewRound()
-    slider.value = Float(bullsEyeGame.currentValue)
+    game.startNewRound()
+    slider.value = Float(game.currentValue)
     updateLabels()
   }
   
   func updateLabels() {
-    targetLabel.text = String(bullsEyeGame.targetValue)
-    scoreLabel.text = String(bullsEyeGame.score)
-    roundLabel.text = String(bullsEyeGame.round)
+    targetLabel.text = String(game.targetValue)
+    scoreLabel.text = String(game.score)
+    roundLabel.text = String(game.round)
   }
   
   @IBAction func startNewGame() {
-    bullsEyeGame.startNewGame()
+    game.startNewGame()
     startNewRound()
   }
   
