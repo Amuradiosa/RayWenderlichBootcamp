@@ -27,12 +27,14 @@ struct BullsEyeGame {
   var targetValue = RGB()
   var score = 0
   var round = 0
+  var gameMaxValue: Int
+
+  init(gameMaxValue: Int) {
+    self.gameMaxValue = gameMaxValue
+  }
   
-  mutating func pointsAndFeedback() -> (Int, String) {
-    let difference = Int(currentValue.difference(target: targetValue) * 100)
+  mutating func pointsAndFeedback(forThis difference: Int) -> (Int, String) {
     var points = 100 - difference
-    
-    score += points
     
     let title: String
     if difference == 0 {
@@ -48,13 +50,14 @@ struct BullsEyeGame {
     } else {
       title = "Not even close..."
     }
+    score += points
     return (points, title)
   }
   
   mutating func startNewRound() {
     round += 1
-    targetValue = RGB(r: Int.random(in: 0...255), g: Int.random(in: 0...255), b: Int.random(in: 0...255))
-    currentValue = RGB(r: 127, g: 127, b: 127)
+    targetValue = RGB(r: Int.random(in: 0...gameMaxValue), g: Int.random(in: 0...gameMaxValue), b: Int.random(in: 0...gameMaxValue))
+    currentValue = RGB()
   }
   
   mutating func startNewGame() {

@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
   
   var game = BullsEyeGame(gameMaxValue: 100)
+  var difference: Int {
+    abs(game.targetValue - game.currentValue)
+  }
   
   @IBOutlet weak var slider: UISlider!
   @IBOutlet weak var targetLabel: UILabel!
@@ -20,11 +23,11 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     startNewGame()
+    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(difference)/100.0)
   }
 
   @IBAction func showAlert() {
-    let difference = abs(game.targetValue - game.currentValue)
-    let (points, title) = game.pointsAndFeedback(for: difference)
+    let (points, title) = game.pointsAndFeedback(forThis: difference)
     let message = "You scored \(points) points"
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -43,18 +46,21 @@ class ViewController: UIViewController {
   @IBAction func sliderMoved(_ slider: UISlider) {
     let roundedValue = slider.value.rounded()
     game.currentValue = Int(roundedValue)
+    slider.minimumTrackTintColor =
+    UIColor.blue.withAlphaComponent(CGFloat(difference)/100.0)
   }
   
   func startNewRound() {
     game.startNewRound()
     slider.value = Float(game.currentValue)
-    updateLabels()
+    updateView()
   }
   
-  func updateLabels() {
+  func updateView() {
     targetLabel.text = String(game.targetValue)
     scoreLabel.text = String(game.score)
     roundLabel.text = String(game.round)
+    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(difference)/100.0)
   }
   
   @IBAction func startNewGame() {

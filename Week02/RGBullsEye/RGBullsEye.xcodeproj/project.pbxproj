@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E3E912248F03AC000384DF /* UIColorRGBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3E911248F03AC000384DF /* UIColorRGBExtension.swift */; };
 		181A114F22AD925B003EA9CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181A114E22AD925B003EA9CF /* LaunchScreen.storyboard */; };
 		CDCB57E51BED8F4800003224 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB57E41BED8F4800003224 /* AppDelegate.swift */; };
 		CDCB57E71BED8F4800003224 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB57E61BED8F4800003224 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15E3E911248F03AC000384DF /* UIColorRGBExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorRGBExtension.swift; sourceTree = "<group>"; };
 		181A114E22AD925B003EA9CF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDCB57E11BED8F4800003224 /* RGBullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGBullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCB57E41BED8F4800003224 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		15E3E910248F034D000384DF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				15E3E911248F03AC000384DF /* UIColorRGBExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CDCB57D81BED8F4800003224 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 				1545D183248E4C9B0084DBA8 /* Models */,
 				1545D185248E4CC00084DBA8 /* Views */,
 				1545D184248E4CB00084DBA8 /* Controllers */,
+				15E3E910248F034D000384DF /* Extensions */,
 				1545D186248E4CDE0084DBA8 /* Supporting files */,
 				CDCB57F01BED8F4800003224 /* Info.plist */,
 			);
@@ -193,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDCB57E71BED8F4800003224 /* ViewController.swift in Sources */,
+				15E3E912248F03AC000384DF /* UIColorRGBExtension.swift in Sources */,
 				CDCB57E51BED8F4800003224 /* AppDelegate.swift in Sources */,
 				CDCB57F81BED941D00003224 /* BullsEyeGame.swift in Sources */,
 				CDCB57FB1BED986300003224 /* AboutViewController.swift in Sources */,

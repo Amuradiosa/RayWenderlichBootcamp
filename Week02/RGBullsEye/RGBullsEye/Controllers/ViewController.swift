@@ -23,6 +23,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+  var game = BullsEyeGame(gameMaxValue: 255)
+
   @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var targetTextLabel: UILabel!
   @IBOutlet weak var guessLabel: UILabel!
@@ -38,27 +40,24 @@ class ViewController: UIViewController {
   @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   
-  var game = BullsEyeGame()
-  var rgb = RGB()
-  
   @IBAction func aSliderMoved(sender: UISlider) {
     let roundedValue = sender.value.rounded()
     if sender.tag == 0 {
-      rgb.r = Int(roundedValue)
+      game.currentValue.r = Int(roundedValue)
       redLabel.text = Int(roundedValue).description
     } else if sender.tag == 1 {
-      rgb.g = Int(roundedValue)
+      game.currentValue.g = Int(roundedValue)
       greenLabel.text = Int(roundedValue).description
     } else if sender.tag == 2 {
-      rgb.b = Int(roundedValue)
+      game.currentValue.b = Int(roundedValue)
       blueLabel.text = Int(roundedValue).description
     }
-    game.currentValue = rgb
     guessLabel.backgroundColor = UIColor.init(rgbStruct: game.currentValue)
   }
   
   @IBAction func showAlert(sender: AnyObject) {
-    let (points, title) = game.pointsAndFeedback()
+    let difference = Int(game.currentValue.difference(target: game.targetValue) * 100)
+    let (points, title) = game.pointsAndFeedback(forThis: difference)
     let message = "You scored \(points) points"
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -101,5 +100,6 @@ class ViewController: UIViewController {
     game.startNewGame()
     updateView()
   }
+
 }
 
