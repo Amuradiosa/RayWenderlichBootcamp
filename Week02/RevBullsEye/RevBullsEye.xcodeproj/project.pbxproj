@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		1559080D248C026400B18440 /* BullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeGame.swift; sourceTree = "<group>"; };
-		352A679520D171E800D5BF05 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		352A679520D171E800D5BF05 /* RevRevBullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevRevBullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352A679820D171E800D5BF05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		352A679A20D171E800D5BF05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		352A679D20D171E800D5BF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		352A679620D171E800D5BF05 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				352A679520D171E800D5BF05 /* BullsEye.app */,
+				352A679520D171E800D5BF05 /* RevRevBullsEye.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,9 +102,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		352A679420D171E800D5BF05 /* BullsEye */ = {
+		352A679420D171E800D5BF05 /* RevBullsEye */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 352A67A720D171EA00D5BF05 /* Build configuration list for PBXNativeTarget "BullsEye" */;
+			buildConfigurationList = 352A67A720D171EA00D5BF05 /* Build configuration list for PBXNativeTarget "RevBullsEye" */;
 			buildPhases = (
 				352A679120D171E800D5BF05 /* Sources */,
 				352A679220D171E800D5BF05 /* Frameworks */,
@@ -114,9 +114,9 @@
 			);
 			dependencies = (
 			);
-			name = BullsEye;
+			name = RevBullsEye;
 			productName = BullsEye;
-			productReference = 352A679520D171E800D5BF05 /* BullsEye.app */;
+			productReference = 352A679520D171E800D5BF05 /* RevRevBullsEye.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -135,7 +135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 352A679020D171E800D5BF05 /* Build configuration list for PBXProject "BullsEye" */;
+			buildConfigurationList = 352A679020D171E800D5BF05 /* Build configuration list for PBXProject "RevBullsEye" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -148,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				352A679420D171E800D5BF05 /* BullsEye */,
+				352A679420D171E800D5BF05 /* RevBullsEye */,
 			);
 		};
 /* End PBXProject section */
@@ -325,7 +325,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.BullsEye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RevRevBullsEye;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -343,7 +343,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.BullsEye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RevRevBullsEye;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -352,7 +352,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		352A679020D171E800D5BF05 /* Build configuration list for PBXProject "BullsEye" */ = {
+		352A679020D171E800D5BF05 /* Build configuration list for PBXProject "RevBullsEye" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				352A67A520D171EA00D5BF05 /* Debug */,
@@ -361,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		352A67A720D171EA00D5BF05 /* Build configuration list for PBXNativeTarget "BullsEye" */ = {
+		352A67A720D171EA00D5BF05 /* Build configuration list for PBXNativeTarget "RevBullsEye" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				352A67A820D171EA00D5BF05 /* Debug */,

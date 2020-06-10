@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
   
   var game = BullsEyeGame(gameMaxValue: 100)
   var difference: Int {
@@ -23,13 +23,34 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     startNewGame()
+    configureTextField()
   }
-
-//  func textFieldDidBeginEditing(_ textField: UITextField) {
-//    guard let text = Int(sliderGuessTextField.text!) else { return }
-//    game.currentValue = text
-//    sliderGuessTextField.backgroundColor = UIColor.blue.withAlphaComponent(CGFloat(difference)/100.0)
-//  }
+  
+  // MARK: text field delegate method
+  func configureTextField() {
+    sliderGuessTextField.delegate = self
+    sliderGuessTextField.addTarget(self, action: #selector(self.editingChanged), for: .editingChanged)
+    sliderGuessTextField.backgroundColor = UIColor.blue.withAlphaComponent(CGFloat(difference)/100.0)
+  }
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    if (textField.text!.count >= 3 && !string.isEmpty) {
+      return false
+    }
+    
+    let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+    return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+  }
+  
+  @objc func editingChanged(_ textField: UITextField) {
+    if let num = Int(textField.text!) {
+      textField.text = "\(num)"
+      game.currentValue = num
+    } else {
+      textField.text = ""
+    }
+    sliderGuessTextField.backgroundColor = UIColor.blue.withAlphaComponent(CGFloat(difference)/100.0)
+  }
   
   @IBAction func tapped(_ sender: Any) {
     view.endEditing(true)
@@ -38,13 +59,15 @@ class ViewController: UIViewController {
   @IBAction func showAlert() {
     var pointsAndTitle: (points: Int, title: String)
     var message: String
+    var title: String
     
     if let text = Int(sliderGuessTextField.text!), 0...100 ~= text   {
-      game.currentValue = text
       pointsAndTitle = game.pointsAndFeedback(forThis: difference)
       message = "You scored \(pointsAndTitle.points) points"
+      title = pointsAndTitle.title
     } else {
       message = "Invalid input"
+      title = ""
     }
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -57,7 +80,6 @@ class ViewController: UIViewController {
     alert.addAction(action)
     
     present(alert, animated: true, completion: nil)
-    
   }
   
   func startNewRound() {
