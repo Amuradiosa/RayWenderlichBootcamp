@@ -42,6 +42,8 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
+  
+  let cryptoData = DataGenerator.shared.generateData()
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -91,15 +93,27 @@ class HomeViewController: UIViewController{
     headingLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
     view1TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
     view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+    view3TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
   }
   
   func setView1Data() {
+    view1TextLabel.text = cryptoData?
+      .map { $0.name }
+      .joined(separator: ", ")
   }
   
   func setView2Data() {
+    view2TextLabel.text = cryptoData?
+      .filter { $0.currentValue > $0.previousValue }
+      .map { $0.name }
+      .joined(separator: ", ")
   }
   
   func setView3Data() {
+    view3TextLabel.text = cryptoData?
+      .filter { $0.currentValue < $0.previousValue  }
+      .map { $0.name }
+      .joined(separator: ", ")
   }
   
   @IBAction func switchPressed(_ sender: Any) {
