@@ -56,10 +56,12 @@ class HomeViewController: UIViewController{
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    registerForTheme()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    unregisterForTheme()
   }
 
   func setupViews() {
@@ -117,5 +119,41 @@ class HomeViewController: UIViewController{
   }
   
   @IBAction func switchPressed(_ sender: Any) {
+    switch themeSwitch.isOn {
+    case true:
+      ThemeManager.shared.set(theme: WinterTheme())
+    case false:
+      ThemeManager.shared.set(theme: LightTheme())
+    }
   }
+  
+}
+
+extension HomeViewController: Themable {
+  func registerForTheme() {
+    NotificationCenter.default.addObserver(self, selector: #selector(themeChanged), name: Notification.Name.init("themeChanged"), object: nil)
+  }
+  
+  func unregisterForTheme() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
+  @objc func themeChanged() {
+    view1.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+    view1.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+    view1TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+    
+    view2.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+    view2.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+    view2TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+    
+    view3.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+    view3.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+    view3TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+    
+    view.backgroundColor = ThemeManager.shared.currentTheme?.backgroundColor
+    navigationController?.navigationBar.barTintColor =  ThemeManager.shared.currentTheme?.widgetBackgroundColor
+    
+  }
+  
 }

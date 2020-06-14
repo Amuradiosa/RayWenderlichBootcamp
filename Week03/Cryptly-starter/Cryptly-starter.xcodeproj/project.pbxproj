@@ -62,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				A1F9E04E249268D200323226 /* Model.swift */,
-				A1F9E0522492690B00323226 /* Theme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F9E0502492690000323226 /* ThemeManager.swift */,
+				A1F9E0522492690B00323226 /* Theme.swift */,
 			);
 			path = ThemeManager;
 			sourceTree = "<group>";
