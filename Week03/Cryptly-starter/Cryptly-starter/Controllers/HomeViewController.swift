@@ -126,28 +126,30 @@ extension HomeViewController: Themable {
   }
   
   @objc func themeChanged() {
-    view1.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-    view1.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-    view1TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-    
-    view2.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-    view2.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-    view2TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-    
-    view3.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-    view3.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-    view3TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-    
-    mostFallingView.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-    mostFallingView.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-    mostFallingTextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-    
-    mostRisingView.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-    mostRisingView.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-    mostRisingTextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-    
-    view.backgroundColor = ThemeManager.shared.currentTheme?.backgroundColor
-    navigationController?.navigationBar.barTintColor =  ThemeManager.shared.currentTheme?.widgetBackgroundColor
+    UIView.animate(withDuration: 0.5) {
+      self.view1.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+      self.view1.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+      self.view1TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+
+      self.view2.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+      self.view2.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+      self.view2TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+
+      self.view3.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+      self.view3.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+      self.view3TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+      
+      self.mostFallingView.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+      self.mostFallingView.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+      self.mostFallingTextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+
+      self.mostRisingView.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+      self.mostRisingView.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+      self.mostRisingTextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+
+      self.view.backgroundColor = ThemeManager.shared.currentTheme?.backgroundColor
+      self.navigationController?.navigationBar.barTintColor =  ThemeManager.shared.currentTheme?.widgetBackgroundColor
+    }
   }
   
 }

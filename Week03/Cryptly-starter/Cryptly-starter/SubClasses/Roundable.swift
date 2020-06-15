@@ -32,25 +32,13 @@
 
 import UIKit
 
-class CryptoView: UIView, Roundable {
-  var cornerRadius: CGFloat
-  
-  required init?(coder aDecoder: NSCoder) {
-    cornerRadius = 20
-    super.init(coder: aDecoder)
-    setupView()
-  }
-  
-  func setupView() {
-    self.backgroundColor = .systemGray6
-    self.layer.borderColor = UIColor.lightGray.cgColor
-    self.layer.borderWidth = 1.0
-    self.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    self.layer.shadowOffset = CGSize(width: 0, height: 2)
-    self.layer.shadowRadius = 4
-    self.layer.shadowOpacity = 0.8
-    self.round()
-  }
-  
+protocol Roundable: UIView {
+  var cornerRadius: CGFloat { get }
+  func round()
 }
 
+extension Roundable {
+  func round() {
+    self.layer.cornerRadius = cornerRadius
+  }
+}

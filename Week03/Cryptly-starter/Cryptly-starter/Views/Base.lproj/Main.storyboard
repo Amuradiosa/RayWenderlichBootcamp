@@ -102,42 +102,62 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8u-zK-r2C" customClass="CryptoView" customModule="Cryptly_starter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pc-Ub-rav">
-                                                <rect key="frame" x="67" y="91" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pc-Ub-rav">
+                                                <rect key="frame" x="67.666666666666671" y="89" width="41.666666666666671" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="NaX-Qy-68U"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Most Falling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfl-iQ-Unr">
-                                                <rect key="frame" x="39" y="8" width="97" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Falling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfl-iQ-Unr">
+                                                <rect key="frame" x="40.333333333333336" y="10" width="96.333333333333314" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="XXW-bQ-9IG"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Zfl-iQ-Unr" firstAttribute="centerX" secondItem="d8u-zK-r2C" secondAttribute="centerX" id="1gw-Kb-5Tf"/>
+                                            <constraint firstItem="9pc-Ub-rav" firstAttribute="centerX" secondItem="d8u-zK-r2C" secondAttribute="centerX" id="OKQ-QV-OeI"/>
+                                            <constraint firstAttribute="bottom" secondItem="9pc-Ub-rav" secondAttribute="bottom" constant="10" id="UfU-G5-bSh"/>
+                                            <constraint firstItem="Zfl-iQ-Unr" firstAttribute="top" secondItem="d8u-zK-r2C" secondAttribute="top" constant="10" id="sFS-48-F8d"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pP6-ps-upG" customClass="CryptoView" customModule="Cryptly_starter" customModuleProvider="target">
                                         <rect key="frame" x="197" y="0.0" width="177" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRp-ES-iDa">
-                                                <rect key="frame" x="67" y="91" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Rising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byd-j2-P0m">
+                                                <rect key="frame" x="41.999999999999993" y="10" width="93.333333333333314" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="YU2-4w-ZfG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Most Rising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byd-j2-P0m">
-                                                <rect key="frame" x="40" y="8" width="94" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRp-ES-iDa">
+                                                <rect key="frame" x="67.666666666666686" y="89" width="41.666666666666657" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="pqc-QB-hhW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="nRp-ES-iDa" secondAttribute="bottom" constant="10" id="FhV-DD-2Lc"/>
+                                            <constraint firstItem="byd-j2-P0m" firstAttribute="centerX" secondItem="pP6-ps-upG" secondAttribute="centerX" id="MSt-n7-BRz"/>
+                                            <constraint firstItem="byd-j2-P0m" firstAttribute="top" secondItem="pP6-ps-upG" secondAttribute="top" constant="10" id="bLi-jz-bct"/>
+                                            <constraint firstItem="nRp-ES-iDa" firstAttribute="centerX" secondItem="pP6-ps-upG" secondAttribute="centerX" id="juK-n5-19r"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -166,7 +186,7 @@
                         <viewLayoutGuide key="safeArea" id="Fco-UW-GoN"/>
                     </view>
                     <navigationItem key="navigationItem" id="mL2-rx-U9s">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ug4-v8-lt1">
+                        <barButtonItem key="rightBarButtonItem" id="ug4-v8-lt1">
                             <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kW6-Ms-UCP">
                                 <rect key="frame" x="343" y="6.6666666666666679" width="51" height="31.000000000000004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
