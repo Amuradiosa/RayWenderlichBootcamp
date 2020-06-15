@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E3E91B2496E067000384DF /* CryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3E91A2496E067000384DF /* CryptoView.swift */; };
 		180DC61523C78D9800486B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180DC61423C78D9800486B1A /* LaunchScreen.storyboard */; };
 		185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CB1FB23C78CE6009F7571 /* AppDelegate.swift */; };
 		185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15E3E91A2496E067000384DF /* CryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
 		180DC61423C78D9800486B1A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		185CB1F823C78CE6009F7571 /* Cryptly-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cryptly-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		185CB1FB23C78CE6009F7571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		15E3E9192496E021000384DF /* SubClasses */ = {
+			isa = PBXGroup;
+			children = (
+				15E3E91A2496E067000384DF /* CryptoView.swift */,
+			);
+			path = SubClasses;
+			sourceTree = "<group>";
+		};
 		185CB1EF23C78CE6009F7571 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		185CB1FA23C78CE6009F7571 /* Cryptly-starter */ = {
 			isa = PBXGroup;
 			children = (
+				15E3E9192496E021000384DF /* SubClasses */,
 				A1F9E0552492697800323226 /* ThemeManager */,
 				A1F9E0542492696200323226 /* Data */,
 				15E3E91624963618000384DF /* Models */,
@@ -231,6 +242,7 @@
 				A1F9E049249267DB00323226 /* HomeViewController.swift in Sources */,
 				A1F9E04B2492688C00323226 /* DataGenerator.swift in Sources */,
 				A1F9E0512492690000323226 /* ThemeManager.swift in Sources */,
+				15E3E91B2496E067000384DF /* CryptoView.swift in Sources */,
 				A1F9E0532492690B00323226 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
