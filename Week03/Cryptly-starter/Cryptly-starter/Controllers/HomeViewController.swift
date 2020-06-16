@@ -40,6 +40,8 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var mostFallingView: CryptoView!
   @IBOutlet weak var mostRisingView: CryptoView!
 
+  @IBOutlet weak var mostFallingHeading: UILabel!
+  @IBOutlet weak var mostRisingHeading: UILabel!
   @IBOutlet weak var mostFallingTextLabel: UILabel!
   @IBOutlet weak var mostRisingTextLabel: UILabel!
   @IBOutlet weak var headingLabel: UILabel!
@@ -98,11 +100,17 @@ class HomeViewController: UIViewController{
   }
   
   func setMostFallingViewData() {
-    mostFallingTextLabel.text = cryptoData?.filter { $0.trend == .falling }.map { $0.valueRise }.min()?.description
+    mostFallingTextLabel.text = cryptoData?
+      .filter { $0.trend == .falling }
+      .map { $0.valueRise }
+      .min()?.description
   }
   
   func setMostRisingViewData() {
-    mostRisingTextLabel.text = cryptoData?.filter { $0.trend == .rising }.map { $0.valueRise }.max()?.description
+    mostRisingTextLabel.text = cryptoData?
+      .filter { $0.trend == .rising }
+      .map { $0.valueRise }
+      .max()?.description
   }
   
   @IBAction func switchPressed(_ sender: Any) {
@@ -126,26 +134,16 @@ extension HomeViewController: Themable {
   }
   
   @objc func themeChanged() {
-    UIView.animate(withDuration: 0.5) {
-      self.view1.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-      self.view1.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-      self.view1TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-
-      self.view2.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-      self.view2.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-      self.view2TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-
-      self.view3.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-      self.view3.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-      self.view3TextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-      
-      self.mostFallingView.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-      self.mostFallingView.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-      self.mostFallingTextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
-
-      self.mostRisingView.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
-      self.mostRisingView.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
-      self.mostRisingTextLabel.textColor = ThemeManager.shared.currentTheme?.textColor
+    let views = [view1, view2, view3, mostFallingView, mostRisingView]
+    let labels = [view1TextLabel, view2TextLabel, view3TextLabel, mostFallingTextLabel, mostRisingTextLabel, headingLabel, mostFallingHeading, mostRisingHeading]
+    UIView.animate(withDuration: 0.3) {
+      views.forEach {
+        $0!.backgroundColor = ThemeManager.shared.currentTheme?.widgetBackgroundColor
+        $0!.layer.borderColor = ThemeManager.shared.currentTheme?.borderColor.cgColor
+      }
+      labels.forEach {
+        $0!.textColor = ThemeManager.shared.currentTheme?.textColor
+      }
 
       self.view.backgroundColor = ThemeManager.shared.currentTheme?.backgroundColor
       self.navigationController?.navigationBar.barTintColor =  ThemeManager.shared.currentTheme?.widgetBackgroundColor

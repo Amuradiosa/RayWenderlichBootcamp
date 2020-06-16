@@ -198,8 +198,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="headingLabel" destination="zrp-g0-HX2" id="CEx-vX-zmI"/>
+                        <outlet property="mostFallingHeading" destination="Zfl-iQ-Unr" id="n7H-Kl-QGm"/>
                         <outlet property="mostFallingTextLabel" destination="9pc-Ub-rav" id="kPb-VF-1qY"/>
                         <outlet property="mostFallingView" destination="d8u-zK-r2C" id="y5i-dr-zOT"/>
+                        <outlet property="mostRisingHeading" destination="byd-j2-P0m" id="KL8-hA-TJ6"/>
                         <outlet property="mostRisingTextLabel" destination="nRp-ES-iDa" id="e1V-tf-JWx"/>
                         <outlet property="mostRisingView" destination="pP6-ps-upG" id="l0f-Db-QQE"/>
                         <outlet property="themeSwitch" destination="kW6-Ms-UCP" id="Vpv-W6-XtS"/>
