@@ -37,7 +37,7 @@ struct CryptoCurrency: Codable {
   var symbol: String
   var currentValue: Double
   var previousValue: Double
-  var trend: Trend { valueRise > 0 ? .rising : .falling }
+  var trend: Trend { valueRise > 0 && valueRise != 0 ? .rising : .falling }
   var valueRise: Float { Float(currentValue - previousValue) }
 }
 

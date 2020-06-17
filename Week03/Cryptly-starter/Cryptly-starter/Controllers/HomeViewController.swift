@@ -72,41 +72,41 @@ class HomeViewController: UIViewController{
     unregisterForTheme()
   }
   
-  func setupLabels() {
+  private func setupLabels() {
     headingLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
     view1TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
     view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
     view3TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
   }
   
-  func setView1Data() {
+  private func setView1Data() {
     view1TextLabel.text = cryptoData?
       .map { $0.name }
       .joined(separator: ", ")
   }
   
-  func setView2Data() {
+  private func setView2Data() {
     view2TextLabel.text = cryptoData?
       .filter { $0.currentValue > $0.previousValue }
       .map { $0.name }
       .joined(separator: ", ")
   }
   
-  func setView3Data() {
+  private func setView3Data() {
     view3TextLabel.text = cryptoData?
       .filter { $0.currentValue < $0.previousValue  }
       .map { $0.name }
       .joined(separator: ", ")
   }
   
-  func setMostFallingViewData() {
+  private func setMostFallingViewData() {
     mostFallingTextLabel.text = cryptoData?
       .filter { $0.trend == .falling }
       .map { $0.valueRise }
       .min()?.description
   }
   
-  func setMostRisingViewData() {
+  private func setMostRisingViewData() {
     mostRisingTextLabel.text = cryptoData?
       .filter { $0.trend == .rising }
       .map { $0.valueRise }
