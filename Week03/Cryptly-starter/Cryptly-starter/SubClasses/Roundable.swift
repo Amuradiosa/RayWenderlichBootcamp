@@ -38,6 +38,9 @@ protocol Roundable: UIView {
 }
 
 extension Roundable {
+  var cornerRadius: CGFloat {
+    return 20
+  }
   func round() {
     self.layer.cornerRadius = cornerRadius
   }
