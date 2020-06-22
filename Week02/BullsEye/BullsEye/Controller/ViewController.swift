@@ -65,6 +65,7 @@ class ViewController: UIViewController {
   
   @IBAction func startNewGame() {
     game.startNewGame()
+    // you could've called this function internal in bullseyegame model
     startNewRound()
   }
   

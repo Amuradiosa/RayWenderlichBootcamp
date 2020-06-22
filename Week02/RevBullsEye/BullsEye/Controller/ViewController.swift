@@ -61,6 +61,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
     var message: String
     var title: String
     
+//    or you can do this guard let string = sliderGuessTextField.text,
+//      let guess = Int(string) else { return }
     if let text = Int(sliderGuessTextField.text!), 0...100 ~= text   {
       pointsAndTitle = game.pointsAndFeedback(forThis: difference)
       message = "You scored \(pointsAndTitle.points) points"
