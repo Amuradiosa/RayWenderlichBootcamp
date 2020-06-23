@@ -80,6 +80,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		158318D124A2A1B5008DA89A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3017C722499C91700B1E49A /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		158318D224A2A1C4008DA89A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3017C452499C83A00B1E49A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		158318D324A2A1CE008DA89A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C3017C432499C83A00B1E49A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		158318D424A2A1DA008DA89A /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				C3017C3F2499C83A00B1E49A /* AppDelegate.swift */,
+				C3017C412499C83A00B1E49A /* SceneDelegate.swift */,
+				C3017C4B2499C83B00B1E49A /* Assets.xcassets */,
+				C3017C4D2499C83B00B1E49A /* LaunchScreen.storyboard */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
 		C3017C332499C83A00B1E49A = {
 			isa = PBXGroup;
 			children = (
@@ -103,13 +138,10 @@
 		C3017C3E2499C83A00B1E49A /* CompatibilitySlider-Start */ = {
 			isa = PBXGroup;
 			children = (
-				C3017C3F2499C83A00B1E49A /* AppDelegate.swift */,
-				C3017C412499C83A00B1E49A /* SceneDelegate.swift */,
-				C3017C432499C83A00B1E49A /* ViewController.swift */,
-				C3017C722499C91700B1E49A /* Person.swift */,
-				C3017C452499C83A00B1E49A /* Main.storyboard */,
-				C3017C4B2499C83B00B1E49A /* Assets.xcassets */,
-				C3017C4D2499C83B00B1E49A /* LaunchScreen.storyboard */,
+				158318D124A2A1B5008DA89A /* Model */,
+				158318D224A2A1C4008DA89A /* View */,
+				158318D324A2A1CE008DA89A /* Controller */,
+				158318D424A2A1DA008DA89A /* Supporting files */,
 				C3017C502499C83B00B1E49A /* Info.plist */,
 				C3017C482499C83A00B1E49A /* CompatibilitySlider_Start.xcdatamodeld */,
 			);

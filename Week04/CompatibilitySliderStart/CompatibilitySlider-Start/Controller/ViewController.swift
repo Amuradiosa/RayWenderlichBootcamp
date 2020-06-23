@@ -10,34 +10,38 @@ import UIKit
 
 class ViewController: UIViewController {
   
+  // MARK: Outlets
   @IBOutlet weak var compatibilityItemLabel: UILabel!
   @IBOutlet weak var slider: UISlider!
   @IBOutlet weak var questionLabel: UILabel!
   
-  var compatibilityItems = ["Cats", "Dogs"] // Add more!
-  var currentItemIndex = 0
+  // MARK: Variables
+  private var compatibilityItems = ["Cats", "Dogs", "Guinea pigs", "Hamsters"] // Add more!
+  private var currentItemIndex = 0
   
-  var person1 = Person(id: 1, items: [:])
-  var person2 = Person(id: 2, items: [:])
-  var currentPerson: Person?
+  private var person1 = Person(id: 1, items: [:])
+  private var person2 = Person(id: 2, items: [:])
+  private var currentPerson: Person?
   
+  // MARK: Configuration
   override func viewDidLoad() {
     super.viewDidLoad()
+    configure()
+  }
+  
+  func configure() {
     currentPerson = person1
     updateViews()
   }
   
+  // MARK: UI
   func updateViews() {
     questionLabel.text! = currentPerson == person1 ? "Person1 How do you feel about..." : "Person2 How do you feel about..."
     compatibilityItemLabel.text! = compatibilityItems[currentItemIndex]
     slider.value = 3
   }
   
-  @IBAction func sliderValueChanged(_ sender: UISlider) {
-    print(sender.value)
-    
-  }
-  
+  // MARK: Action
   @IBAction func didPressNextItemButton(_ sender: Any) {
     let currentItem = compatibilityItems[currentItemIndex]
     currentPerson?.items.updateValue(slider.value, forKey: currentItem)
@@ -46,7 +50,7 @@ class ViewController: UIViewController {
     updateViews()
   }
   
-  
+  // MARK: functions
   func shallChangeCurrentUser() {
     if currentItemIndex >= compatibilityItems.count {
       currentItemIndex = 0
