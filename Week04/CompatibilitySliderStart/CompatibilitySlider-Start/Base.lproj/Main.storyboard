@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EMi-bD-1oI" userLabel="Boss Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EMi-bD-1oI" userLabel="Master Stack View">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="2DX-Sk-XgY" userLabel="Top Stack View">
@@ -51,7 +51,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-vT-GOs" userLabel="Middle Stack View">
-                                        <rect key="frame" x="20" y="373" width="374" height="102"/>
+                                        <rect key="frame" x="20" y="368" width="374" height="102"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1YH-h9-w73" userLabel="Emoji Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -73,7 +73,7 @@
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qva-iw-efA">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qva-iw-efA">
                                                 <rect key="frame" x="-2" y="72" width="378" height="31"/>
                                                 <connections>
                                                     <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="OJB-PN-gwH"/>
@@ -88,8 +88,8 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1w-P6-8nd">
-                                        <rect key="frame" x="154" y="780" width="106" height="38"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <rect key="frame" x="154" y="760" width="106" height="58"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                         <state key="normal" title="Next Item"/>
                                         <connections>
                                             <action selector="didPressNextItemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MS9-8c-dV0"/>
@@ -97,7 +97,6 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="d1w-P6-8nd" secondAttribute="bottom" id="3Zx-Ob-W1u"/>
                                     <constraint firstItem="2DX-Sk-XgY" firstAttribute="top" secondItem="EMi-bD-1oI" secondAttribute="top" id="6IB-A6-9Bi"/>
                                     <constraint firstItem="zx3-vT-GOs" firstAttribute="leading" secondItem="EMi-bD-1oI" secondAttribute="leading" constant="20" id="FNH-6x-ASw"/>
                                     <constraint firstItem="2DX-Sk-XgY" firstAttribute="leading" secondItem="EMi-bD-1oI" secondAttribute="leading" id="Q41-dB-9jW"/>
