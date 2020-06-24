@@ -36,7 +36,7 @@ class ViewController: UIViewController {
   
   // MARK: UI
   func updateViews() {
-    questionLabel.text! = currentPerson == person1 ? "Person1 How do you feel about..." : "Person2 How do you feel about..."
+    questionLabel.text! = currentPerson == person1 ? "Person1, How do you feel about..." : "Person2, How do you feel about..."
     compatibilityItemLabel.text! = compatibilityItems[currentItemIndex]
     slider.value = 3
   }
