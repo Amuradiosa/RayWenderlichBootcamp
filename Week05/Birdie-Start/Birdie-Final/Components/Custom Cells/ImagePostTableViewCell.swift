@@ -30,7 +30,7 @@ class ImagePostTableViewCell: UITableViewCell {
   
   func populateCell(_ userName: String, _ date: Date, _ postText: String?, _ postImage: UIImage) {
     userNameLabel.text = userName
-    dateLabel.text = date.string()
+    dateLabel.text = date.string
     postTextLabel.text = postText != nil ? postText : ""
     postImageView.image = postImage
   }

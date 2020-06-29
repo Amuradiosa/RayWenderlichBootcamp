@@ -31,7 +31,7 @@ class TextPostTableViewCell: UITableViewCell {
   
   func populateCell(_ userName: String, _ date: Date, _ postText: String?) {
     userNameLabel.text = userName
-    dateLabel.text = date.string()
+    dateLabel.text = date.string
     postTextLabel.text = postText != nil ? postText : ""
   }
   

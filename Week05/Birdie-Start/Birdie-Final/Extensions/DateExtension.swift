@@ -11,7 +11,7 @@ import Foundation
 extension Date {
   
   // Get string representation form date
-  func string() -> String {
+  var string: String {
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: "en_GB")
     formatter.setLocalizedDateFormatFromTemplate("MMMd, HH:mm")
