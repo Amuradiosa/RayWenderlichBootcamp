@@ -14,7 +14,7 @@ class ImagePostTableViewCell: UITableViewCell {
   
   @IBOutlet weak var postTextLabel: UILabel!
   
-  @IBOutlet weak var imagePostLabel: UIImageView!
+  @IBOutlet weak var postImageView: UIImageView!
   
   
   override func awakeFromNib() {
@@ -26,6 +26,13 @@ class ImagePostTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
     
     // Configure the view for the selected state
+  }
+  
+  func populateCell(_ userName: String, _ date: Date, _ postText: String?, _ postImage: UIImage) {
+    userNameLabel.text = userName
+    dateLabel.text = date.string()
+    postTextLabel.text = postText != nil ? postText : ""
+    postImageView.image = postImage
   }
   
 }

@@ -15,7 +15,7 @@ class MediaPostsHandler: NSObject {
     private override init() {}
 
     func getPosts() {
-        let imagePost1 = ImagePost(textBody: "I love debugging software!", userName: "Jay", timestamp: Date(timeIntervalSince1970: 10000), image: UIImage(named: "chop")!)
+        let imagePost1 = ImagePost(textBody: "I love debugging software!", userName: "Jay", timestamp: Date(timeIntervalSince1970: -10000), image: UIImage(named: "chop")!)
         let imagePost2 = ImagePost(textBody: "Went to the Aquarium today :]", userName: "Audrey", timestamp: Date(timeIntervalSince1970: 30000), image: UIImage(named: "octopus")!)
         let textPost1 = TextPost(textBody: "Hello World!", userName: "Bhagat", timestamp: Date(timeIntervalSince1970: 20000))
         let textPost2 = TextPost(textBody: "This is my favorite social media app!", userName: "Jeff", timestamp: Date(timeIntervalSince1970: 40000))
