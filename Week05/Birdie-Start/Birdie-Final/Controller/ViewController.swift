@@ -52,7 +52,7 @@ class ViewController: UIViewController {
   
   
   func pickImageAlert() {
-    let alert = UIAlertController(title: "Get An Image :]", message: "Choose your photo using...", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Post An Image :]", message: "Choose your photo using...", preferredStyle: .alert)
     let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
       self.displayCamera()
     }
