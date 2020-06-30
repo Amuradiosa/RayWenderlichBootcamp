@@ -15,3 +15,7 @@ protocol MediaPost {
     var userName: String { get set }
     var timestamp: Date { get set }
 }
+
+enum PostKind: String {
+  case textPost, imagePost
+}
