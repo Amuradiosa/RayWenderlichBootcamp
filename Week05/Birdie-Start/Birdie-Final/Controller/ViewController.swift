@@ -133,7 +133,7 @@ class ViewController: UIViewController {
     present(photoPicker, animated: true)
   }
   
-  // Function to present alert message when permission denied or restricted
+  // A function to present alert message when permission denied or restricted
   func troubleAlert(message: String?) {
     let alertController = UIAlertController(title: "Oops", message: message, preferredStyle: .alert)
     let okAction = UIAlertAction(title: "Got it", style: .cancel)
@@ -143,6 +143,7 @@ class ViewController: UIViewController {
   
   
   func create(_ post: PostKind) {
+    var userNameTextField = UITextField()
     
     let alert = UIAlertController(
       title: "Create Post",
@@ -150,11 +151,13 @@ class ViewController: UIViewController {
       preferredStyle: .alert
     )
     alert.addTextField { (textField) in
+      userNameTextField = textField
       textField.placeholder = "Username"
     }
     alert.addTextField { (textField) in
       textField.placeholder = "Text"
     }
+    
     
     let okAction = UIAlertAction(
       title: "Ok",
@@ -166,12 +169,19 @@ class ViewController: UIViewController {
         let textPost = TextPost(textBody: textBody, userName: username!, timestamp: Date())
         MediaPostsHandler.shared.addTextPost(textPost: textPost)
         self.updateTableViewInsertion()
+        NotificationCenter.default.removeObserver(self, name: UITextField.textDidChangeNotification, object: userNameTextField)
       } else if post == PostKind.imagePost {
         let imagePost = ImagePost(textBody: textBody, userName: username!, timestamp: Date(), image: self.userChosenImage)
         MediaPostsHandler.shared.addImagePost(imagePost: imagePost)
         self.updateTableViewInsertion()
+        NotificationCenter.default.removeObserver(self, name: UITextField.textDidChangeNotification, object: userNameTextField)
       }
     }
+    okAction.isEnabled = false
+    NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: userNameTextField, queue: OperationQueue.main) { (notification) in
+      okAction.isEnabled = self.validInput(userNameTextField)
+    }
+    
     
     let cancelAction = UIAlertAction(
       title: "Cancel",
@@ -181,6 +191,13 @@ class ViewController: UIViewController {
     alert.addAction(cancelAction)
     
     present(alert, animated: true)
+  }
+  
+  func validInput(_ textfieldInput: UITextField) -> Bool {
+    if let caption = textfieldInput.text?.trimmingCharacters(in: .whitespaces) {
+      return caption.count > 0
+    }
+    return false
   }
   
   func updateTableViewInsertion() {
