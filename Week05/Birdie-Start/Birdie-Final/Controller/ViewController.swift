@@ -12,16 +12,18 @@ import AVFoundation
 
 class ViewController: UIViewController {
   
+  // MARK: - Outlets
   @IBOutlet weak var tableview: UITableView!
   
-  let viewModel = MediaPostsViewModel()
-  
+  // MARK: - Properties
+  private let viewModel = MediaPostsViewModel()
   private(set) var userChosenImage = UIImage() {
     didSet {
       create(.imagePost)
     }
   }
   
+  // MARK: - Configuration
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpTableView()
@@ -38,7 +40,7 @@ class ViewController: UIViewController {
     tableview.register(imagePostcell, forCellReuseIdentifier: "ImagePostCell")
   }
   
-  
+  // MARK: - Actions
   @IBAction func didPressCreateTextPostButton(_ sender: Any) {
     create(.textPost)
   }
@@ -47,100 +49,8 @@ class ViewController: UIViewController {
     pickImageAlert()
   }
   
-  
-  
-  func pickImageAlert() {
-    let alert = UIAlertController(title: "Post An Image :]", message: "Choose your photo using...", preferredStyle: .alert)
-    let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
-      self.displayCamera()
-    }
-    let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-      self.displayLibrary()
-    }
-    alert.addAction(cameraAction)
-    alert.addAction(photoLibraryAction)
-    
-    present(alert, animated: true)
-    
-  }
-  
-  func displayCamera() {
-    let sourceType = UIImagePickerController.SourceType.camera
-    
-    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-      // no permission prompt
-      let noPermissionMessage = "looks like Birdie has no access to your camera, please go to settings on your device to permit Gridy accessing your camera"
-      
-      let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
-      switch status {
-      case .notDetermined :
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { (granted) in
-          if granted {
-            self.presentPhoto(withThis: sourceType)
-          } else {
-            // if permission denied call the function that prompts the user with an alert message
-            self.troubleAlert(message: noPermissionMessage)
-          }
-        }
-      case .authorized :
-        self.presentPhoto(withThis: sourceType)
-      case .denied, .restricted :
-        self.troubleAlert(message: noPermissionMessage)
-      default:
-        // default case to handle all unknown cases.
-        troubleAlert(message: "Sincere apologies, it looks like we can't access your camera at this time")
-      }
-    } else {
-      // if the source type isn't available for any reason, prompts the user with an alert message so as to make the user aware that there's something wrong, rather than leaving the user puzzled as to what's happening
-      troubleAlert(message: "Sincere apologies, it looks like we can't access your camera at this time")
-    }
-  }
-  
-  func displayLibrary() {
-    let sourceType = UIImagePickerController.SourceType.photoLibrary
-    
-    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-      let noPermissionMessage = "looks like Birdie has no access to your library, please go to settings on your device to permit Gridy accessing your library"
-      
-      let status = PHPhotoLibrary.authorizationStatus()
-      switch status {
-      case .notDetermined :
-        PHPhotoLibrary.requestAuthorization { (granted) in
-          if granted == .authorized {
-            self.presentPhoto(withThis: sourceType)
-          } else {
-            self.troubleAlert(message: noPermissionMessage)
-          }
-        }
-      case .authorized :
-        self.presentPhoto(withThis: sourceType)
-      case .denied, .restricted :
-        self.troubleAlert(message: noPermissionMessage)
-      default:
-        troubleAlert(message: "Sincere apologies, it looks like we can't access your photo library at this time")
-      }
-    } else {
-      troubleAlert(message: "Sincere apologies, it looks like we can't access your photo library at this time")
-    }
-  }
-  
-  func presentPhoto(withThis sourceType: UIImagePickerController.SourceType) {
-    let photoPicker = UIImagePickerController()
-    photoPicker.delegate = self
-    photoPicker.sourceType = sourceType
-    present(photoPicker, animated: true)
-  }
-  
-  // A function to present alert message when permission denied or restricted
-  func troubleAlert(message: String?) {
-    let alertController = UIAlertController(title: "Oops", message: message, preferredStyle: .alert)
-    let okAction = UIAlertAction(title: "Got it", style: .cancel)
-    alertController.addAction(okAction)
-    present(alertController, animated: true)
-  }
-  
-  
-  func create(_ post: PostKind) {
+  // MARK: - Main functions
+  private func create(_ post: PostKind) {
     var userNameTextField = UITextField()
     
     let alert = UIAlertController(
@@ -155,7 +65,6 @@ class ViewController: UIViewController {
     alert.addTextField { (textField) in
       textField.placeholder = "Text"
     }
-    
     
     let okAction = UIAlertAction(
       title: "Ok",
@@ -191,14 +100,15 @@ class ViewController: UIViewController {
     present(alert, animated: true)
   }
   
-  func validInput(_ textfieldInput: UITextField) -> Bool {
+  // MARK: - Helper functions
+  private func validInput(_ textfieldInput: UITextField) -> Bool {
     if let caption = textfieldInput.text?.trimmingCharacters(in: .whitespaces) {
       return caption.count > 0
     }
     return false
   }
   
-  func updateTableViewInsertion() {
+  private func updateTableViewInsertion() {
     let indexPath = IndexPath(row: 0, section: 0)
     // Doing it this way so that updating tableView can be animated
     tableview.insertRows(at: [indexPath], with: .automatic)
@@ -206,7 +116,7 @@ class ViewController: UIViewController {
   
 }
 
-
+// MARK: - TableView delegate methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -219,8 +129,99 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
 }
 
+// MARK: - Image picking functionality
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
+  private func pickImageAlert() {
+    let alert = UIAlertController(title: "Post An Image :]", message: "Choose your photo using...", preferredStyle: .alert)
+    let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+      self.displayCamera()
+    }
+    let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+      self.displayLibrary()
+    }
+    alert.addAction(cameraAction)
+    alert.addAction(photoLibraryAction)
+    
+    present(alert, animated: true)
+  }
+  
+  private func displayCamera() {
+    let sourceType = UIImagePickerController.SourceType.camera
+    
+    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+      // no permission prompt
+      let noPermissionMessage = "looks like Birdie has no access to your camera, please go to settings on your device to permit Gridy accessing your camera"
+      
+      let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+      switch status {
+      case .notDetermined :
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { (granted) in
+          if granted {
+            self.presentPhoto(withThis: sourceType)
+          } else {
+            // if permission denied call the function that prompts the user with an alert message
+            self.troubleAlert(message: noPermissionMessage)
+          }
+        }
+      case .authorized :
+        self.presentPhoto(withThis: sourceType)
+      case .denied, .restricted :
+        self.troubleAlert(message: noPermissionMessage)
+      default:
+        // default case to handle all unknown cases.
+        troubleAlert(message: "Sincere apologies, it looks like we can't access your camera at this time")
+      }
+    } else {
+      // if the source type isn't available for any reason, prompts the user with an alert message so as to make the user aware that there's something wrong, rather than leaving the user puzzled as to what's happening
+      troubleAlert(message: "Sincere apologies, it looks like we can't access your camera at this time")
+    }
+  }
+  
+  private func displayLibrary() {
+    let sourceType = UIImagePickerController.SourceType.photoLibrary
+    
+    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+      let noPermissionMessage = "looks like Birdie has no access to your library, please go to settings on your device to permit Gridy accessing your library"
+      
+      let status = PHPhotoLibrary.authorizationStatus()
+      switch status {
+      case .notDetermined :
+        PHPhotoLibrary.requestAuthorization { (granted) in
+          if granted == .authorized {
+            self.presentPhoto(withThis: sourceType)
+          } else {
+            self.troubleAlert(message: noPermissionMessage)
+          }
+        }
+      case .authorized :
+        self.presentPhoto(withThis: sourceType)
+      case .denied, .restricted :
+        self.troubleAlert(message: noPermissionMessage)
+      default:
+        troubleAlert(message: "Sincere apologies, it looks like we can't access your photo library at this time")
+      }
+    } else {
+      troubleAlert(message: "Sincere apologies, it looks like we can't access your photo library at this time")
+    }
+  }
+  
+  private func presentPhoto(withThis sourceType: UIImagePickerController.SourceType) {
+    let photoPicker = UIImagePickerController()
+    photoPicker.delegate = self
+    photoPicker.sourceType = sourceType
+    present(photoPicker, animated: true)
+  }
+  
+  // A function to present alert message when permission denied or restricted
+  private func troubleAlert(message: String?) {
+    let alertController = UIAlertController(title: "Oops", message: message, preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "Got it", style: .cancel)
+    alertController.addAction(okAction)
+    present(alertController, animated: true)
+  }
+  
+  // MARK: - Image picker controller delegate methods
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     picker.dismiss(animated: true, completion: nil)
     guard let pickedImage = info[.originalImage] as? UIImage else {
