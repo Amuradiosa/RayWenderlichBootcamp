@@ -9,11 +9,10 @@
 import UIKit
 
 class ImagePostTableViewCell: UITableViewCell {
+  
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
-  
   @IBOutlet weak var postTextLabel: UILabel!
-  
   @IBOutlet weak var postImageView: UIImageView!
   
   

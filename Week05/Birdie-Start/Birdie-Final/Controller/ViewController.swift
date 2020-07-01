@@ -14,9 +14,7 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableview: UITableView!
   
-  var dataSource: [MediaPost] {
-    MediaPostsHandler.shared.mediaPosts
-  }
+  let viewModel = MediaPostsViewModel()
   
   private(set) var userChosenImage = UIImage() {
     didSet {
@@ -93,7 +91,7 @@ class ViewController: UIViewController {
         troubleAlert(message: "Sincere apologies, it looks like we can't access your camera at this time")
       }
     } else {
-      // if the source type isn't available for any reason, prompts the user with an alert message so as to make the user aware that there's something wrong, rather than leave them puzzled
+      // if the source type isn't available for any reason, prompts the user with an alert message so as to make the user aware that there's something wrong, rather than leaving the user puzzled as to what's happening
       troubleAlert(message: "Sincere apologies, it looks like we can't access your camera at this time")
     }
   }
@@ -177,11 +175,11 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UITextField.textDidChangeNotification, object: userNameTextField)
       }
     }
+    
     okAction.isEnabled = false
     NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: userNameTextField, queue: OperationQueue.main) { (notification) in
       okAction.isEnabled = self.validInput(userNameTextField)
     }
-    
     
     let cancelAction = UIAlertAction(
       title: "Cancel",
@@ -202,7 +200,7 @@ class ViewController: UIViewController {
   
   func updateTableViewInsertion() {
     let indexPath = IndexPath(row: 0, section: 0)
-    // Doing it this way so that updating tableView is animated
+    // Doing it this way so that updating tableView can be animated
     tableview.insertRows(at: [indexPath], with: .automatic)
   }
   
@@ -212,21 +210,11 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    dataSource.count
+    viewModel.dataSource.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    if let textPost = dataSource[indexPath.row] as? TextPost {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "TextPostCell", for: indexPath) as! TextPostTableViewCell
-      cell.populateCell(textPost.userName, textPost.timestamp, textPost.textBody)
-      return cell
-    } else if let imagePost = dataSource[indexPath.row] as? ImagePost {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "ImagePostCell", for: indexPath) as! ImagePostTableViewCell
-      cell.populateCell(imagePost.userName, imagePost.timestamp, imagePost.textBody, imagePost.image)
-      return cell
-    }
-    return UITableViewCell()
+    viewModel.configureTableViewCell(tableView, cellForRowAt: indexPath)
   }
   
 }

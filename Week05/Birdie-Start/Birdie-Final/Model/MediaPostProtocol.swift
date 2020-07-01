@@ -11,9 +11,9 @@ import Foundation
 // We use this protocol so both text posts and image posts
 // can be in the MediaPostsHandler.shared.mediaPosts array
 protocol MediaPost {
-    var textBody: String? { get set }
-    var userName: String { get set }
-    var timestamp: Date { get set }
+  var textBody: String? { get set }
+  var userName: String { get set }
+  var timestamp: Date { get set }
 }
 
 enum PostKind: String {

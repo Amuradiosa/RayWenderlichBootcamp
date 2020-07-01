@@ -12,6 +12,7 @@
 		158318E624AA6CC0008DA89A /* ImagePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158318E424AA6CC0008DA89A /* ImagePostTableViewCell.swift */; };
 		158318E724AA6CC0008DA89A /* ImagePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158318E524AA6CC0008DA89A /* ImagePostTableViewCell.xib */; };
 		158318F024AA8E50008DA89A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158318EF24AA8E50008DA89A /* DateExtension.swift */; };
+		158318F224ACB911008DA89A /* MediaPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158318F124ACB911008DA89A /* MediaPostsViewModel.swift */; };
 		C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35D249B324B001F55A6 /* AppDelegate.swift */; };
 		C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */; };
 		C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		158318E424AA6CC0008DA89A /* ImagePostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostTableViewCell.swift; sourceTree = "<group>"; };
 		158318E524AA6CC0008DA89A /* ImagePostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePostTableViewCell.xib; sourceTree = "<group>"; };
 		158318EF24AA8E50008DA89A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		158318F124ACB911008DA89A /* MediaPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostsViewModel.swift; sourceTree = "<group>"; };
 		C3C9D35A249B324B001F55A6 /* Birdie-Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birdie-Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C9D35D249B324B001F55A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		C3C9D39E249B3C30001F55A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				158318F124ACB911008DA89A /* MediaPostsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,
 				C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */,
+				158318F224ACB911008DA89A /* MediaPostsViewModel.swift in Sources */,
 				158318E624AA6CC0008DA89A /* ImagePostTableViewCell.swift in Sources */,
 				158318F024AA8E50008DA89A /* DateExtension.swift in Sources */,
 				C3C9D368249B324B001F55A6 /* Birdie_Final.xcdatamodeld in Sources */,

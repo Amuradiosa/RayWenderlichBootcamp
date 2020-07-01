@@ -9,10 +9,10 @@
 import UIKit
 
 struct ImagePost: MediaPost {
-    var textBody: String?
-    var userName: String
-    var timestamp: Date
-    var image: UIImage
+  var textBody: String?
+  var userName: String
+  var timestamp: Date
+  var image: UIImage
 }
 
 
