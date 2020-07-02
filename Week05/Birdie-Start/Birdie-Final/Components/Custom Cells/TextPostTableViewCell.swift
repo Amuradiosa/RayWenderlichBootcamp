@@ -25,10 +25,10 @@ class TextPostTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  func populateCell(_ userName: String, _ date: Date, _ postText: String?) {
-    userNameLabel.text = userName
-    dateLabel.text = date.string
-    postTextLabel.text = postText != nil ? postText : ""
+  func populateCell(with textPost: TextPost) {
+    userNameLabel.text = textPost.userName
+    dateLabel.text = textPost.timestamp.string
+    postTextLabel.text = textPost.textBody
   }
   
 }

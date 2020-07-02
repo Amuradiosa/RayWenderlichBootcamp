@@ -23,11 +23,11 @@ extension MediaPostsViewModel {
   func configureTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let textPost = dataSource[indexPath.row] as? TextPost {
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextPostCell", for: indexPath) as! TextPostTableViewCell
-      cell.populateCell(textPost.userName, textPost.timestamp, textPost.textBody)
+      cell.populateCell(with: textPost)
       return cell
     } else if let imagePost = dataSource[indexPath.row] as? ImagePost {
       let cell = tableView.dequeueReusableCell(withIdentifier: "ImagePostCell", for: indexPath) as! ImagePostTableViewCell
-      cell.populateCell(imagePost.userName, imagePost.timestamp, imagePost.textBody, imagePost.image)
+      cell.populateCell(with: imagePost)
       return cell
     }
     return UITableViewCell()

@@ -27,11 +27,11 @@ class ImagePostTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  func populateCell(_ userName: String, _ date: Date, _ postText: String?, _ postImage: UIImage) {
-    userNameLabel.text = userName
-    dateLabel.text = date.string
-    postTextLabel.text = postText != nil ? postText : ""
-    postImageView.image = postImage
+  func populateCell(with imagePost: ImagePost) {
+    userNameLabel.text = imagePost.userName
+    dateLabel.text = imagePost.timestamp.string
+    postTextLabel.text = imagePost.textBody
+    postImageView.image = imagePost.image
   }
   
 }
