@@ -46,7 +46,6 @@ class CompactViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureCollectionView()
-    // Do any additional setup after loading the view.
   }
   
   func configureCollectionView() {
@@ -54,6 +53,7 @@ class CompactViewController: UIViewController {
     collectionView.register(cell, forCellWithReuseIdentifier: PokemonCompactCell.reuseIdentifier)
     
     collectionView.backgroundView = UIImageView.init(image: UIImage(named: "bg"))
+    
     collectionView.collectionViewLayout = configureLayout()
     configureDataSource()
   }
@@ -90,14 +90,8 @@ class CompactViewController: UIViewController {
     
   }
     
-  /*
    // MARK: - Navigation
    
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
+   
   
 }

@@ -41,7 +41,6 @@ class PokemonCompactCell: UICollectionViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
   }
   
   func populateCell(with pokemon: Pokemon) {
