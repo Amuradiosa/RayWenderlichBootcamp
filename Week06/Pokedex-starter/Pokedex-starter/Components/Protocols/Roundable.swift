@@ -32,21 +32,16 @@
 
 import UIKit
 
-class PokemonCompactCell: UICollectionViewCell, Roundable {
-  static let reuseIdentifier = String(describing: PokemonCompactCell.self)
-  
-  @IBOutlet weak var pokemonImage: UIImageView!
-  
-  @IBOutlet weak var pokemonName: UILabel!
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    round()
+protocol Roundable: UIView {
+  var cornerRadius: CGFloat { get }
+  func round()
+}
+
+extension Roundable {
+  var cornerRadius: CGFloat {
+    return 15
   }
-  
-  func populateCell(with pokemon: Pokemon) {
-    pokemonName.text = pokemon.pokemonName
-    pokemonImage.image = UIImage(named: pokemon.pokemonID.description)
+  func round() {
+    self.layer.cornerRadius = cornerRadius
   }
-  
 }
