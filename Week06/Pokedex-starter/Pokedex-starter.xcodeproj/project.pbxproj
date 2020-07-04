@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15FA2E4624B0897400B61790 /* PokemonCompactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2E4424B0897400B61790 /* PokemonCompactCell.swift */; };
+		15FA2E4724B0897400B61790 /* PokemonCompactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FA2E4524B0897400B61790 /* PokemonCompactCell.xib */; };
 		180DC61523C78D9800486B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180DC61423C78D9800486B1A /* LaunchScreen.storyboard */; };
 		185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CB1FB23C78CE6009F7571 /* AppDelegate.swift */; };
 		185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15FA2E4424B0897400B61790 /* PokemonCompactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCompactCell.swift; sourceTree = "<group>"; };
+		15FA2E4524B0897400B61790 /* PokemonCompactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCompactCell.xib; sourceTree = "<group>"; };
 		180DC61423C78D9800486B1A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		185CB1F823C78CE6009F7571 /* Pokedex-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		185CB1FB23C78CE6009F7571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15FA2E3A24B07A7F00B61790 /* App delegate */ = {
+			isa = PBXGroup;
+			children = (
+				185CB1FB23C78CE6009F7571 /* AppDelegate.swift */,
+				185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */,
+			);
+			path = "App delegate";
+			sourceTree = "<group>";
+		};
+		15FA2E3B24B07A9E00B61790 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				185CB20123C78CE6009F7571 /* Main.storyboard */,
+				180DC61423C78D9800486B1A /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		15FA2E3C24B07AA900B61790 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A10D04F824ABC8DB00DE5D14 /* Pokemon.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		15FA2E3D24B07BA900B61790 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		15FA2E3E24B07C7200B61790 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				15FA2E3F24B07C8500B61790 /* Custom Cells */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		15FA2E3F24B07C8500B61790 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				15FA2E4424B0897400B61790 /* PokemonCompactCell.swift */,
+				15FA2E4524B0897400B61790 /* PokemonCompactCell.xib */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		185CB1EF23C78CE6009F7571 = {
 			isa = PBXGroup;
 			children = (
@@ -68,13 +122,13 @@
 		185CB1FA23C78CE6009F7571 /* Pokedex-starter */ = {
 			isa = PBXGroup;
 			children = (
-				185CB1FB23C78CE6009F7571 /* AppDelegate.swift */,
-				185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */,
-				185CB20123C78CE6009F7571 /* Main.storyboard */,
+				15FA2E3E24B07C7200B61790 /* Components */,
+				15FA2E3A24B07A7F00B61790 /* App delegate */,
+				15FA2E3C24B07AA900B61790 /* Models */,
+				15FA2E3B24B07A9E00B61790 /* Views */,
+				15FA2E3D24B07BA900B61790 /* Controllers */,
 				185CB20423C78CE8009F7571 /* Assets.xcassets */,
-				180DC61423C78D9800486B1A /* LaunchScreen.storyboard */,
 				185CB20923C78CE8009F7571 /* Info.plist */,
-				A10D04F824ABC8DB00DE5D14 /* Pokemon.swift */,
 				A125200724AAAB64008F7E2E /* Resources */,
 			);
 			path = "Pokedex-starter";
@@ -157,6 +211,7 @@
 				185CB20523C78CE8009F7571 /* Assets.xcassets in Resources */,
 				A125200A24AAAB71008F7E2E /* pokemon.csv in Resources */,
 				185CB20323C78CE6009F7571 /* Main.storyboard in Resources */,
+				15FA2E4724B0897400B61790 /* PokemonCompactCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15FA2E4624B0897400B61790 /* PokemonCompactCell.swift in Sources */,
 				A10D04F924ABC8DB00DE5D14 /* Pokemon.swift in Sources */,
 				A125200B24AAAB71008F7E2E /* csv.swift in Sources */,
 				A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */,

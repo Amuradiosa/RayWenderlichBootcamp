@@ -30,8 +30,17 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-struct Pokemon {
+class PokemonCompactCell: UICollectionViewCell {
+  
+  @IBOutlet weak var pokemonImage: UIImageView!
+  
+  @IBOutlet weak var pokemonName: UILabel!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
 }
-
