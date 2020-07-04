@@ -33,6 +33,7 @@
 import UIKit
 
 class PokemonCompactCell: UICollectionViewCell {
+  static let reuseIdentifier = String(describing: PokemonCompactCell.self)
   
   @IBOutlet weak var pokemonImage: UIImageView!
   
@@ -41,6 +42,11 @@ class PokemonCompactCell: UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
+  }
+  
+  func populateCell(with pokemon: Pokemon) {
+    pokemonName.text = pokemon.pokemonName
+    pokemonImage.image = UIImage(named: pokemon.pokemonID.description)
   }
   
 }
