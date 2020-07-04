@@ -9,28 +9,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="PokemonCompactCell" id="gTV-IL-0wX" customClass="PokemonCompactCell" customModule="Pokedex_starter" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="PokemonCompactCell" id="gTV-IL-0wX" customClass="PokemonCompactCell" customModule="Pokedex_starter" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cif-eB-HPM">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cif-eB-HPM">
                         <rect key="frame" x="0.0" y="88" width="120" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.9972409606" green="0.44040843839999999" blue="0.40389519930000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="nkG-Lw-IuB"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9q4-8o-iP2">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9q4-8o-iP2">
                         <rect key="frame" x="20" y="0.0" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="W66-Lb-wCl"/>
+                            <constraint firstAttribute="height" constant="80" id="fhd-Ff-lbd"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cif-eB-HPM" secondAttribute="bottom" id="9P0-hR-PV1"/>
+                <constraint firstItem="9q4-8o-iP2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="A5J-l1-K1g"/>
+                <constraint firstItem="cif-eB-HPM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TnE-Eg-XBP"/>
+                <constraint firstAttribute="trailing" secondItem="cif-eB-HPM" secondAttribute="trailing" id="sf4-Go-3NT"/>
+                <constraint firstItem="9q4-8o-iP2" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="wYO-zl-DgQ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="114" height="116"/>
             <connections>

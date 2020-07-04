@@ -53,6 +53,7 @@ class CompactViewController: UIViewController {
     let cell = UINib(nibName: PokemonCompactCell.reuseIdentifier, bundle: nil)
     collectionView.register(cell, forCellWithReuseIdentifier: PokemonCompactCell.reuseIdentifier)
     
+    collectionView.backgroundView = UIImageView.init(image: UIImage(named: "bg"))
     collectionView.collectionViewLayout = configureLayout()
     configureDataSource()
   }

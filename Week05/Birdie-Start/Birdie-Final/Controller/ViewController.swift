@@ -151,7 +151,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
     if UIImagePickerController.isSourceTypeAvailable(sourceType) {
       // no permission prompt
-      let noPermissionMessage = "looks like Birdie has no access to your camera, please go to settings on your device to permit Gridy accessing your camera"
+      let noPermissionMessage = "looks like Birdie has no access to your camera, please go to settings on your device to permit Birdie accessing your camera"
       
       let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
       switch status {
@@ -182,7 +182,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     let sourceType = UIImagePickerController.SourceType.photoLibrary
     
     if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-      let noPermissionMessage = "looks like Birdie has no access to your library, please go to settings on your device to permit Gridy accessing your library"
+      let noPermissionMessage = "looks like Birdie has no access to your library, please go to settings on your device to permit Birdie accessing your library"
       
       let status = PHPhotoLibrary.authorizationStatus()
       switch status {

@@ -87,9 +87,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-7R-jLs">
                                 <rect key="frame" x="0.0" y="56" width="375" height="562"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-ib-KiG">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-ib-KiG">
                                 <rect key="frame" x="0.0" y="56" width="375" height="562"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gg7-2q-h3A">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -104,10 +103,14 @@
                             <constraint firstItem="juZ-AC-nhh" firstAttribute="trailing" secondItem="ezc-7R-jLs" secondAttribute="trailing" id="3fY-um-jw7"/>
                             <constraint firstItem="ezc-7R-jLs" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="6ZZ-KK-9JX"/>
                             <constraint firstItem="juZ-AC-nhh" firstAttribute="trailing" secondItem="uRK-MR-EZD" secondAttribute="trailing" id="6p2-hk-mrB"/>
+                            <constraint firstItem="m7J-ib-KiG" firstAttribute="trailing" secondItem="juZ-AC-nhh" secondAttribute="trailing" id="BPj-XH-6hY"/>
                             <constraint firstItem="uRK-MR-EZD" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="ETr-KJ-RPR"/>
                             <constraint firstItem="juZ-AC-nhh" firstAttribute="bottom" secondItem="ezc-7R-jLs" secondAttribute="bottom" id="Hmz-Oo-7tb"/>
+                            <constraint firstItem="m7J-ib-KiG" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="afS-HO-7Id"/>
+                            <constraint firstItem="m7J-ib-KiG" firstAttribute="top" secondItem="uRK-MR-EZD" secondAttribute="bottom" id="bZj-YE-Pv6"/>
                             <constraint firstItem="uRK-MR-EZD" firstAttribute="top" secondItem="juZ-AC-nhh" secondAttribute="top" id="brE-6N-XyE"/>
                             <constraint firstItem="ezc-7R-jLs" firstAttribute="top" secondItem="uRK-MR-EZD" secondAttribute="bottom" id="kEK-Ew-Wqq"/>
+                            <constraint firstItem="m7J-ib-KiG" firstAttribute="bottom" secondItem="juZ-AC-nhh" secondAttribute="bottom" id="zjv-8O-x5f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="juZ-AC-nhh"/>
                     </view>
