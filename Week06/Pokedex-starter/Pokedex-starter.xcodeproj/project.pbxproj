@@ -11,6 +11,9 @@
 		15FA2E4724B0897400B61790 /* PokemonCompactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FA2E4524B0897400B61790 /* PokemonCompactCell.xib */; };
 		15FA2E4924B0965400B61790 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2E4824B0965400B61790 /* CompactViewController.swift */; };
 		15FA2E4C24B10FED00B61790 /* Roundable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2E4B24B10FED00B61790 /* Roundable.swift */; };
+		15FA2E4F24B1248000B61790 /* PokemonLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2E4D24B1248000B61790 /* PokemonLargeCell.swift */; };
+		15FA2E5024B1248000B61790 /* PokemonLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FA2E4E24B1248000B61790 /* PokemonLargeCell.xib */; };
+		15FA2E5224B131A900B61790 /* LargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2E5124B131A900B61790 /* LargeViewController.swift */; };
 		180DC61523C78D9800486B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180DC61423C78D9800486B1A /* LaunchScreen.storyboard */; };
 		185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CB1FB23C78CE6009F7571 /* AppDelegate.swift */; };
 		185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */; };
@@ -29,6 +32,9 @@
 		15FA2E4524B0897400B61790 /* PokemonCompactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCompactCell.xib; sourceTree = "<group>"; };
 		15FA2E4824B0965400B61790 /* CompactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		15FA2E4B24B10FED00B61790 /* Roundable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roundable.swift; sourceTree = "<group>"; };
+		15FA2E4D24B1248000B61790 /* PokemonLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLargeCell.swift; sourceTree = "<group>"; };
+		15FA2E4E24B1248000B61790 /* PokemonLargeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonLargeCell.xib; sourceTree = "<group>"; };
+		15FA2E5124B131A900B61790 /* LargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeViewController.swift; sourceTree = "<group>"; };
 		180DC61423C78D9800486B1A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		185CB1F823C78CE6009F7571 /* Pokedex-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		185CB1FB23C78CE6009F7571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				15FA2E4824B0965400B61790 /* CompactViewController.swift */,
+				15FA2E5124B131A900B61790 /* LargeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,6 +110,8 @@
 			children = (
 				15FA2E4424B0897400B61790 /* PokemonCompactCell.swift */,
 				15FA2E4524B0897400B61790 /* PokemonCompactCell.xib */,
+				15FA2E4D24B1248000B61790 /* PokemonLargeCell.swift */,
+				15FA2E4E24B1248000B61790 /* PokemonLargeCell.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -220,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11D349A24AABED7002BDD2B /* Pokemon Solid.ttf in Resources */,
+				15FA2E5024B1248000B61790 /* PokemonLargeCell.xib in Resources */,
 				180DC61523C78D9800486B1A /* LaunchScreen.storyboard in Resources */,
 				A11D349B24AABED7002BDD2B /* Pokemon Hollow.ttf in Resources */,
 				185CB20523C78CE8009F7571 /* Assets.xcassets in Resources */,
@@ -259,6 +269,8 @@
 				15FA2E4924B0965400B61790 /* CompactViewController.swift in Sources */,
 				15FA2E4624B0897400B61790 /* PokemonCompactCell.swift in Sources */,
 				A10D04F924ABC8DB00DE5D14 /* Pokemon.swift in Sources */,
+				15FA2E4F24B1248000B61790 /* PokemonLargeCell.swift in Sources */,
+				15FA2E5224B131A900B61790 /* LargeViewController.swift in Sources */,
 				A125200B24AAAB71008F7E2E /* csv.swift in Sources */,
 				A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */,
 				185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */,
