@@ -16,6 +16,24 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   let searchController = UISearchController(searchResultsController: nil)
   var sandwiches = [SandwichData]()
   var filteredSandwiches = [SandwichData]()
+  
+  let defaults = UserDefaults.standard
+  let sauceAmountUserDefaultsKey = "ScopeBarIndex"
+  
+  var savedScopeButtonIndex: Int {
+    get {
+      let savedIndex = defaults.value(forKey: sauceAmountUserDefaultsKey)
+      if savedIndex == nil {
+        defaults.set( searchController.searchBar.selectedScopeButtonIndex, forKey: sauceAmountUserDefaultsKey )
+      }
+      return defaults.integer( forKey: sauceAmountUserDefaultsKey )
+    }
+    set {
+      if newValue >= 0 && newValue < searchController.searchBar.scopeButtonTitles!.count {
+        defaults.set ( newValue, forKey: sauceAmountUserDefaultsKey )
+      }
+    }
+  }
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -36,6 +54,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     navigationItem.searchController = searchController
     definesPresentationContext = true
     searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
+    searchController.searchBar.selectedScopeButtonIndex = savedScopeButtonIndex
     searchController.searchBar.delegate = self
   }
 
@@ -44,7 +63,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   }
   
   func loadSandwiches() {
-    let sandwichArray = [SandwichData(name: "Bagel Toast", sauceAmount: .none, imageName: "sandwich1"),
+    let sandwichArray = [SandwichData(name: "Bagel Toast", sauceAmount: .none,                      imageName: "sandwich1"),
                          SandwichData(name: "Bologna", sauceAmount: .none, imageName: "sandwich2"),
                          SandwichData(name: "Breakfast Roll", sauceAmount: .none, imageName: "sandwich3"),
                          SandwichData(name: "Club", sauceAmount: .none, imageName: "sandwich4"),
@@ -126,6 +145,7 @@ extension SandwichViewController: UISearchResultsUpdating {
     let searchBar = searchController.searchBar
     let sauceAmount = SauceAmount(rawValue:
       searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+    print(searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
 
     filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
   }
@@ -135,6 +155,7 @@ extension SandwichViewController: UISearchResultsUpdating {
 extension SandwichViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar,
       selectedScopeButtonIndexDidChange selectedScope: Int) {
+    savedScopeButtonIndex = selectedScope
     let sauceAmount = SauceAmount(rawValue:
       searchBar.scopeButtonTitles![selectedScope])
     filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
