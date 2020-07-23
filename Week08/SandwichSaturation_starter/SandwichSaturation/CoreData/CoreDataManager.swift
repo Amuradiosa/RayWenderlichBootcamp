@@ -28,14 +28,17 @@ class CoreDataManager {
     } else if searchText!.isEmpty {
       request.predicate = NSPredicate(format: "sauceAmount.sauceAmountString = %@", sauceAmount!)
     } else {
-      request.predicate = NSPredicate(format: "sauceAmount.sauceAmountString = %@ AND name CONTAINS[cd] %@", sauceAmount!, searchText!)
+      if sauceAmount == "Either" {
+        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchText!)
+      } else {
+        request.predicate = NSPredicate(format: "sauceAmount.sauceAmountString = %@ AND name CONTAINS[cd] %@", sauceAmount!, searchText!)
+      }
     }
 
     let sort = NSSortDescriptor(keyPath: \SandwichModel.imageName, ascending: true)
     request.sortDescriptors = [sort]
     
     fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-    
     do {
       try fetchedRC.performFetch()
     } catch let error as NSError {

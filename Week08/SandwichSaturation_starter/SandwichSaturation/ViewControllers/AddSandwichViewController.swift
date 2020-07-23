@@ -57,23 +57,32 @@ class AddSandwichViewController: UIViewController {
         return
     }
     
-    let newSandwich = SandwichData(name: sandwichName,
-                               sauceAmount: sauceAmount,
-                               imageName: imageName)
-    saveSandwich(sandwich: newSandwich)
+    let newSandwich = SandwichModel(entity: SandwichModel.entity(), insertInto: CoreDataManager.shared.context)
+    let sauceAmount = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: CoreDataManager.shared.context)
+    newSandwich.name = sandwichName
+    newSandwich.imageName = imageName
+    sauceAmount.sauceAmountCase = self.sauceAmount
+    sauceAmount.sandwich = newSandwich
+    CoreDataManager.shared.appDelegate.saveContext()
+    
+//    let newSandwich = SandwichData(name: sandwichName,
+//                               sauceAmount: sauceAmount,
+//                               imageName: imageName)
+//    saveSandwich(sandwich: newSandwich)
 
     dismiss(animated: true, completion: nil)
   }
   
-  func saveSandwich(sandwich: SandwichData) {
-    guard let navController = presentingViewController as? UINavigationController,
-      let dataSource = navController.topViewController as? SandwichDataSource else {
-        print("Oh noes! The datasource is missing and I don't know where to put these sandwiches!")
-        fatalError()
-    }
-    
-    dataSource.saveSandwich(sandwich)
-  }
+//  func saveSandwich(sandwich: SandwichData) {
+//    guard let navController = presentingViewController as? UINavigationController,
+//      let dataSource = navController.topViewController as? SandwichDataSource else {
+//        print("Oh noes! The datasource is missing and I don't know where to put these sandwiches!")
+//        fatalError()
+//    }
+//
+//    dataSource.saveSandwich(sandwich)
+//  }
+  
 }
 
 extension AddSandwichViewController: UITextFieldDelegate {
