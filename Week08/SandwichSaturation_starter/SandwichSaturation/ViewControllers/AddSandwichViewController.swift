@@ -18,12 +18,8 @@ class AddSandwichViewController: UIViewController {
   required init?(coder: NSCoder) {
     imageName = AddSandwichViewController.randomImageName()
     sauceAmount = SauceAmount.none
-
+    
     super.init(coder: coder)
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -65,24 +61,9 @@ class AddSandwichViewController: UIViewController {
     sauceAmount.sandwich = newSandwich
     CoreDataManager.shared.appDelegate.saveContext()
     
-//    let newSandwich = SandwichData(name: sandwichName,
-//                               sauceAmount: sauceAmount,
-//                               imageName: imageName)
-//    saveSandwich(sandwich: newSandwich)
-
     dismiss(animated: true, completion: nil)
   }
-  
-//  func saveSandwich(sandwich: SandwichData) {
-//    guard let navController = presentingViewController as? UINavigationController,
-//      let dataSource = navController.topViewController as? SandwichDataSource else {
-//        print("Oh noes! The datasource is missing and I don't know where to put these sandwiches!")
-//        fatalError()
-//    }
-//
-//    dataSource.saveSandwich(sandwich)
-//  }
-  
+ 
 }
 
 extension AddSandwichViewController: UITextFieldDelegate {

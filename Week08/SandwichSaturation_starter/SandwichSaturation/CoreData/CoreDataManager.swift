@@ -20,7 +20,7 @@ class CoreDataManager {
   
   
   func refresh(_ searchText: String? = nil,_
-                sauceAmount: String? = nil) {
+    sauceAmount: String? = nil) {
     let request = SandwichModel.fetchRequest() as NSFetchRequest<SandwichModel>
     
     if (searchText == nil && sauceAmount == nil) || (searchText!.isEmpty && sauceAmount == "Either") {
@@ -34,7 +34,7 @@ class CoreDataManager {
         request.predicate = NSPredicate(format: "sauceAmount.sauceAmountString = %@ AND name CONTAINS[cd] %@", sauceAmount!, searchText!)
       }
     }
-
+    
     let sort = NSSortDescriptor(keyPath: \SandwichModel.imageName, ascending: true)
     request.sortDescriptors = [sort]
     

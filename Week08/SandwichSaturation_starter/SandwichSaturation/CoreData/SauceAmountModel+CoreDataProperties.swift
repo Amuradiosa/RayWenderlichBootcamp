@@ -12,12 +12,12 @@ import CoreData
 
 
 extension SauceAmountModel {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<SauceAmountModel> {
-        return NSFetchRequest<SauceAmountModel>(entityName: "SauceAmountModel")
-    }
-
-    @NSManaged public var sauceAmountString: String?
-    @NSManaged public var sandwich: SandwichModel
-
+  
+  @nonobjc public class func fetchRequest() -> NSFetchRequest<SauceAmountModel> {
+    return NSFetchRequest<SauceAmountModel>(entityName: "SauceAmountModel")
+  }
+  
+  @NSManaged public var sauceAmountString: String?
+  @NSManaged public var sandwich: SandwichModel
+  
 }

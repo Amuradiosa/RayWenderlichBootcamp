@@ -11,8 +11,6 @@ import CoreData
 
 class SandwichViewController: UITableViewController {
   let searchController = UISearchController(searchResultsController: nil)
-  var sandwiches = [SandwichData]()
-  var filteredSandwiches = [SandwichData]()
   
   let defaults = UserDefaults.standard
   let sauceAmountUserDefaultsKey = "ScopeBarIndex"
@@ -34,13 +32,12 @@ class SandwichViewController: UITableViewController {
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-    
     loadSandwiches()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+    
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddView(_:)))
     navigationItem.rightBarButtonItem = addButton
     
@@ -55,22 +52,10 @@ class SandwichViewController: UITableViewController {
     searchController.searchBar.delegate = self
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  func loadSandwiches() {
+    CoreDataManager.shared.refresh()
     CoreDataManager.shared.fetchedRC.delegate = self
   }
-  
-  func loadSandwiches() {
-    //    let sandwichArray = sandwichStore.sandwiches
-    //    sandwiches.append(contentsOf: sandwichArray)
-    CoreDataManager.shared.refresh()
-//    CoreDataManager.shared.fetchedRC.delegate = self
-  }
-  
-  //  func saveSandwich(_ sandwich: SandwichData) {
-  //    sandwiches.append(sandwich)
-  //    tableView.reloadData()
-  //  }
   
   @objc
   func presentAddView(_ sender: Any) {
@@ -78,21 +63,11 @@ class SandwichViewController: UITableViewController {
   }
   
   // MARK: - Search Controller
-  var isSearchBarEmpty: Bool {
-    return searchController.searchBar.text?.isEmpty ?? true
-  }
-  
   func filterContentForSearchText(searchText: String? = nil,
                                   sauceAmount: String? = nil) {
     CoreDataManager.shared.refresh(searchText, sauceAmount)
+    CoreDataManager.shared.fetchedRC.delegate = self
     tableView.reloadData()
-  }
-  
-  var isFiltering: Bool {
-    let searchBarScopeIsFiltering =
-      searchController.searchBar.selectedScopeButtonIndex != 0
-    return searchController.isActive &&
-      (!isSearchBarEmpty || searchBarScopeIsFiltering)
   }
   
   // MARK: - Table View
@@ -111,17 +86,12 @@ class SandwichViewController: UITableViewController {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "sandwichCell", for: indexPath) as? SandwichCell
       else { return UITableViewCell() }
     
-    //    let sandwich = isFiltering ?
-    //      filteredSandwiches[indexPath.row] :
-    //      sandwiches[indexPath.row]
     let sandwich = CoreDataManager.shared.fetchedRC.object(at: indexPath)
     
     cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     cell.nameLabel.text = sandwich.name
     cell.sauceLabel.text = sandwich.sauceAmount.sauceAmountCase.description
-    
-    //    cell.sauceLabel.text = sandwich.sauceAmount.sauceAmountString
-    
+        
     return cell
   }
   
@@ -145,10 +115,6 @@ class SandwichViewController: UITableViewController {
 
 // MARK: - UISearchResultsUpdating
 extension SandwichViewController: UISearchResultsUpdating {
-  
-  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-    filterContentForSearchText()
-  }
   
   func updateSearchResults(for searchController: UISearchController) {
     let searchBar = searchController.searchBar
@@ -179,6 +145,7 @@ extension SandwichViewController: NSFetchedResultsControllerDelegate {
     guard let rowIndex = index else {
       return
     }
+    
     switch type {
     case .insert:
       tableView.insertRows(at: [rowIndex], with: .automatic)
