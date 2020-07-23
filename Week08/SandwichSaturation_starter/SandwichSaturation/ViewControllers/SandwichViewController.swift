@@ -34,9 +34,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       }
     }
   }
-  
-  let sandwichStore = SandwichStore()
-
+    
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     
@@ -65,8 +63,9 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   }
   
   func loadSandwiches() {
-    let sandwichArray = sandwichStore.sandwiches
-    sandwiches.append(contentsOf: sandwichArray)
+//    let sandwichArray = sandwichStore.sandwiches
+//    sandwiches.append(contentsOf: sandwichArray)
+    CoreDataManager.shared.refresh()
   }
 
   func saveSandwich(_ sandwich: SandwichData) {
@@ -85,17 +84,18 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   }
   
   func filterContentForSearchText(_ searchText: String,
-                                  sauceAmount: SauceAmount? = nil) {
-    filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
-      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
-
-      if isSearchBarEmpty {
-        return doesSauceAmountMatch
-      } else {
-        return doesSauceAmountMatch && sandwhich.name.lowercased()
-          .contains(searchText.lowercased())
-      }
-    }
+                                  sauceAmount: String) {
+    CoreDataManager.shared.refresh(searchText, sauceAmount)
+//    filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
+//      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
+//
+//      if isSearchBarEmpty {
+//        return doesSauceAmountMatch
+//      } else {
+//        return doesSauceAmountMatch && sandwhich.name.lowercased()
+//          .contains(searchText.lowercased())
+//      }
+//    }
     
     tableView.reloadData()
   }
@@ -108,25 +108,27 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   }
   
   // MARK: - Table View
-  override func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return isFiltering ? filteredSandwiches.count : sandwiches.count
+    guard let objs = CoreDataManager.shared.fetchedRC.fetchedObjects else {
+      return 0
+    }
+    return objs.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "sandwichCell", for: indexPath) as? SandwichCell
       else { return UITableViewCell() }
     
-    let sandwich = isFiltering ?
-      filteredSandwiches[indexPath.row] :
-      sandwiches[indexPath.row]
+//    let sandwich = isFiltering ?
+//      filteredSandwiches[indexPath.row] :
+//      sandwiches[indexPath.row]
+    let sandwich = CoreDataManager.shared.fetchedRC.object(at: indexPath)
 
     cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     cell.nameLabel.text = sandwich.name
-    cell.sauceLabel.text = sandwich.sauceAmount.description
+    cell.sauceLabel.text = sandwich.sauceAmount.sauceAmountCase.description
+
+//    cell.sauceLabel.text = sandwich.sauceAmount.sauceAmountString
 
     return cell
   }
@@ -136,11 +138,11 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 extension SandwichViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     let searchBar = searchController.searchBar
-    let sauceAmount = SauceAmount(rawValue:
-      searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
-    print(searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
-
-    filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
+    let sauceAmount =
+      searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+    
+    CoreDataManager.shared.refresh(searchBar.text!, sauceAmount)
+    tableView.reloadData()
   }
 }
 
@@ -149,9 +151,10 @@ extension SandwichViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar,
       selectedScopeButtonIndexDidChange selectedScope: Int) {
     savedScopeButtonIndex = selectedScope
-    let sauceAmount = SauceAmount(rawValue:
-      searchBar.scopeButtonTitles![selectedScope])
-    filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
+    let sauceAmount = searchBar.scopeButtonTitles![selectedScope]
+    
+    CoreDataManager.shared.refresh(searchBar.text!, sauceAmount)
+    tableView.reloadData()
   }
 }
 
